@@ -48,6 +48,7 @@ namespace PostSharp.Samples.Xaml
           stringBuilder.Append(Country);
         }
 
+
         return stringBuilder.ToString();
       }
     }
