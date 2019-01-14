@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroserviceExample.Controllers
@@ -29,7 +27,7 @@ namespace MicroserviceExample.Controllers
         [HttpGet( "{id}" )]
         public ActionResult<string> Get( int id )
         {
-            if ( this.values.TryGetValue( id, out string value ) )
+            if ( this.values.TryGetValue( id, out var value ) )
             {
                 return value;
             }

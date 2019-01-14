@@ -26,7 +26,7 @@ This repository provides a sandbox where developers can explore the life of a lo
 
 This example contains two applications that run together, so we can explore the correlation of requests coming from both apps.
 
-Correlation is implemented by two artefacts:
+Correlation is implemented by two artifacts:
 
 * On client-side,  `InstrumentOutgoingRequestsAspect`, a PostSharp aspect, adds a header to `HttpClient`.
 
@@ -37,7 +37,7 @@ Correlation is implemented by two artefacts:
 
 ![alt text](./doc/resources/kibana.png "Kibana rendering log events")
 
-TODO: Update sceenshot.
+TODO: Update screenshot.
 
 With a running Elastic Stack and Serilog producing log events you are now ready to take it to the next level. If you fancy the producing part you'll dig deeper into Serilog and its configuration of log contexts, enrichers and message formatters. If you enjoy monitoring applications in production you'll explore Kibana with its visualizations and dashboards.
 

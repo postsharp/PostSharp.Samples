@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using PostSharp.Patterns.Diagnostics;
-using Serilog.Context;
 
 namespace ClientExample
 {
@@ -39,8 +36,8 @@ namespace ClientExample
             try
             {
 
-                string url = $"http://localhost:5005/api/values/{item.Id}";
-                StringContent stringContent = item.Value == null ? null : new StringContent( "\"" + item.Value + "\"", Encoding.UTF8, "application/json" );
+                var url = $"http://localhost:5005/api/values/{item.Id}";
+                var stringContent = item.Value == null ? null : new StringContent( "\"" + item.Value + "\"", Encoding.UTF8, "application/json" );
                 HttpResponseMessage response;
 
 
@@ -64,7 +61,7 @@ namespace ClientExample
 
                 response.EnsureSuccessStatusCode();
 
-                string responseValue = await response.Content.ReadAsStringAsync();
+                var responseValue = await response.Content.ReadAsStringAsync();
             }
             catch ( Exception e )
             {

@@ -1,12 +1,10 @@
 ﻿using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
 using Serilog;
 using Serilog.Configuration;
 using Serilog.Events;
 using Serilog.ExtensionMethods;
 using System;
-using System.Linq;
 
 namespace ApplicationInsightsLib
 {
@@ -41,7 +39,7 @@ namespace ApplicationInsightsLib
                 includeMessageTemplateAsProperty: false);
             }
 
-            ISupportProperties telemetryProperties = (ISupportProperties)telemetry;
+            var telemetryProperties = (ISupportProperties)telemetry;
 
 
             if (logEvent.Properties.ContainsKey("operation_Id"))

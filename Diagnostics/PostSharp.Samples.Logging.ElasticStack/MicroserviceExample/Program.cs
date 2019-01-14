@@ -1,4 +1,4 @@
-﻿using System;
+﻿using MicroserviceExample.Formatters;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -19,18 +19,20 @@ namespace MicroserviceExample
         public static void Main( string[] args )
         {
             // Configure Serilog.
-            Serilog.Core.Logger logger = new LoggerConfiguration()
+            var logger = new LoggerConfiguration()
               .Enrich.WithProperty( "Application", "MicroserviceExample" )
-              .Enrich.FromLogContext()
               .MinimumLevel.Debug()
               .WriteTo.Async( a => a.DurableHttp( requestUri: "http://localhost:31311", batchFormatter: new ArrayBatchFormatter(), batchPostingLimit: 5 ) )
               .WriteTo.Console( outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] {Indent:l}{Message:l}{NewLine}{Exception}" )
               .CreateLogger();
 
             // Configure PostSharp.
-            SerilogLoggingBackend backend = new SerilogLoggingBackend( logger );
+            var backend = new SerilogLoggingBackend( logger );
             backend.Options.IncludeExceptionDetails = true;
             backend.Options.SemanticParametersTreatedSemantically |= SemanticParameterKind.MemberName;
+            backend.Options.AddEventIdProperty = true;
+            backend.Options.ContextIdGenerationStrategy = LoggingOperationIdGenerationStrategy.Hierarchical;
+            LoggingServices.Roles["Custom"].CustomRecordLoggingOptions.IncludeExecutionTime = true;
             LoggingServices.DefaultBackend = backend;
             LoggingServices.Formatters.Register( typeof( ActionResult<> ), typeof( ActionResultFormatter<> ) );
             LoggingServices.Formatters.Register( new ActionResultFormatter() );

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Formatters;
 
-namespace MicroserviceExample
+namespace MicroserviceExample.Formatters
 {
     public class ActionResultFormatter<T> : Formatter<ActionResult<T>>
     {
@@ -16,26 +12,11 @@ namespace MicroserviceExample
         }
     }
 
-    public class ObjectResultFormatter : Formatter<ObjectResult>
-    {
-        public override void Write(UnsafeStringBuilder stringBuilder, ObjectResult value )
-        {
-            if ( value.Value != null )
-            {
-                LoggingServices.Formatters.Get(value.Value.GetType() ).Write(stringBuilder, value.Value );
-            }
-            else
-            {
-                stringBuilder.Append("null" );
-            }
-        }
-    }
-
     public class ActionResultFormatter : Formatter<IActionResult>
     {
         public override void Write( UnsafeStringBuilder stringBuilder, IActionResult value )
         {
-            IFormatter specificFormatter = LoggingServices.Formatters.Get(value.GetType() );
+            var specificFormatter = LoggingServices.Formatters.Get(value.GetType() );
             if ( specificFormatter != this )
             {
                 specificFormatter.Write(stringBuilder, value );
@@ -43,7 +24,7 @@ namespace MicroserviceExample
             else
             {
                 const string suffix = "Result";
-                string name = value.GetType().Name;
+                var name = value.GetType().Name;
 
                 if ( name.EndsWith(suffix ) )
                 {

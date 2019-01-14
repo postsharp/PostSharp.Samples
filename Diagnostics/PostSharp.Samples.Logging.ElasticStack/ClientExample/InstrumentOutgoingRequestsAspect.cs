@@ -5,7 +5,7 @@ using ClientExample;
 using PostSharp.Aspects;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Serialization;
-using Serilog.Context;
+using static PostSharp.Patterns.Diagnostics.SemanticMessageBuilder;
 
 [assembly: InstrumentOutgoingRequestsAspect( AttributeTargetAssemblies = "System.Net.Http", 
     AttributeTargetTypes = "System.Net.Http.HttpClient", 
@@ -16,27 +16,24 @@ namespace ClientExample
     [PSerializable]
     internal class InstrumentOutgoingRequestsAspect : MethodInterceptionAspect
     {
-        private static readonly Logger logger = Logger.GetLogger( LoggingRoles.Tracing, typeof( HttpClient ) );
-
-       
+        private static readonly LogSource logger = LogSource.Get();
 
         public override async Task OnInvokeAsync( MethodInterceptionArgs args )
         {
-            HttpClient http = (HttpClient) args.Instance;
+            var http = (HttpClient) args.Instance;
 
-            string operationId = Guid.NewGuid().ToString();
+            
+            var verb = Trim( args.Method.Name, "Async" );
 
-            http.DefaultRequestHeaders.Remove( "Request-Id" );
-            http.DefaultRequestHeaders.Add( "Request-Id", operationId.ToString() );
-
-            string verb = Trim( args.Method.Name, "Async" );
-
-            using ( LogContext.PushProperty( "OperationId", operationId ) )
-            using ( LogActivity activity = logger.OpenActivity( "{Verb} {Url}", verb, args.Arguments[0] ) )
+            using ( var activity = logger.Default.OpenActivity(  Semantic( verb,  ("Url", args.Arguments[0] ) ) ) )
             {
                 try
                 {
-                    Task t = base.OnInvokeAsync( args );
+                    
+                    http.DefaultRequestHeaders.Remove( "Request-Id" );
+                    http.DefaultRequestHeaders.Add( "Request-Id", activity.ContextId );
+
+                    var t = base.OnInvokeAsync( args );
 
                     // We need to call Suspend/Resume because we're calling LogActivity from an aspect and 
                     // aspects are not automatically enhanced.
@@ -55,15 +52,16 @@ namespace ClientExample
                     }
 
 
-                    HttpResponseMessage response = (HttpResponseMessage) args.ReturnValue;
+                    var response = (HttpResponseMessage) args.ReturnValue;
 
+                    
                     if ( response.IsSuccessStatusCode )
                     {
-                        activity.SetSuccess( "Success: {StatusCode}", response.StatusCode );
+                        activity.SetOutcome( LogLevel.Info, Semantic( "Succeeded", ("StatusCode", response.StatusCode)));
                     }
                     else
                     {
-                        activity.SetFailure( "Failure: {StatusCode}", response.StatusCode );
+                        activity.SetOutcome( LogLevel.Warning, Semantic( "Failed", ("StatusCode", response.StatusCode)));
                     }
 
                 }
