@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -17,21 +18,40 @@ namespace MicroserviceExample
 
             // Read the Request-Id header so we can assign it to the activity.
             string parentOperationId = context.HttpContext.Request.Headers["Request-Id"];
+            string correlationContext = context.HttpContext.Request.Headers["Correlation-Context"];
 
             OpenActivityOptions options = default;
 
+            // Set the parent id.
             if (!string.IsNullOrEmpty(parentOperationId))
             {
-                options.ParentId = parentOperationId;
+                options.SyntheticParentId = parentOperationId;
             }
             else
             {
-                options.IsRoot = true;
+                options.IsSyntheticRootId = true;
+            }
+            
+            // Define the baggage.
+            if (!string.IsNullOrEmpty(correlationContext))
+            {
+                var properties = new List<LoggingProperty>();
+                foreach (var pair in correlationContext.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var posOfEqual = pair.IndexOf('=');
+                    if (posOfEqual <= 0) continue;
+                    var propertyName = pair.Substring(0, posOfEqual);
+                    var propertyValue = pair.Substring(posOfEqual + 1);
+                    properties.Add(new LoggingProperty(propertyName, propertyValue) { IsBaggage = true});
+                    
+                }
+
+                options.Properties = properties.ToArray();
             }
 
             var request = context.HttpContext.Request;
-            using (var activity = logger.Default.OpenActivity(Semantic("Request", ("Path", request.Path),
-                ("Query", request.QueryString), ("Method", request.Method)), options))
+            using (var activity = logger.Default.OpenActivity( Semantic("Request", ("Path", request.Path),
+                                                ("Query", request.QueryString), ("Method", request.Method)), options))
             {
                 try
                 {
@@ -39,7 +59,7 @@ namespace MicroserviceExample
 
                     var response = context.HttpContext.Response;
 
-                    if (response.StatusCode >= (int) HttpStatusCode.OK && response.StatusCode <= (int) 299)
+                    if (response.StatusCode >= (int) HttpStatusCode.OK && response.StatusCode <= 299)
                     {
                         // Success.
                         activity.SetOutcome( LogLevel.Info, Semantic("Success", ("StatusCode", response.StatusCode)));

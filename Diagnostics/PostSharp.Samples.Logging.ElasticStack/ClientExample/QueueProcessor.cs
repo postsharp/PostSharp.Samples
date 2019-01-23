@@ -8,9 +8,9 @@ namespace ClientExample
 {
     public class QueueProcessor
     {
-        private static readonly Logger logger = Logger.GetLogger();
+        private static readonly LogSource logger = LogSource.Get();
 
-        private static HttpClient http = new HttpClient();
+        private static readonly HttpClient http = new HttpClient();
 
         static QueueProcessor()
         {
@@ -65,7 +65,7 @@ namespace ClientExample
             }
             catch ( Exception e )
             {
-                logger.WriteException( LogLevel.Warning, e, "Ignoring exception and continuing." );
+                logger.Warning.Write( FormattedMessageBuilder.Formatted( "Ignoring exception and continuing." ), e );
             }
 
         }

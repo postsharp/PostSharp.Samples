@@ -4,7 +4,7 @@
   
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <LangVersion>7.2</LangVersion>
+    <LangVersion>7.3</LangVersion>
     <OutputType>Exe</OutputType>
     <Configurations>Debug;Release;Development</Configurations>
     <Platforms>AnyCPU</Platforms>
@@ -27,7 +27,6 @@
   <ItemGroup Condition="'$(Configuration)'!='Development'">
     <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.1.6-preview" />
     <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.1.6-preview" />
-    <PackageReference Include="PostSharp.Patterns.Diagnostics.ApplicationInsights" Version="6.1.6-preview" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='Development'">
@@ -43,11 +42,11 @@
     <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Serilog">
       <HintPath>C:\src\postsharp\Patterns\Build\bin\Debug\netstandard2.0\PostSharp.Patterns.Diagnostics.Backends.Serilog.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights">
-      <HintPath>C:\src\postsharp\Patterns\Build\bin\Debug\netstandard2.0\PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.dll</HintPath>
-    </Reference>
-
     <PostSharpAddIn Include="C:\src\postsharp\Patterns\Build\bin\Debug\PostSharp.Patterns.Common.Weaver.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk.Web" />

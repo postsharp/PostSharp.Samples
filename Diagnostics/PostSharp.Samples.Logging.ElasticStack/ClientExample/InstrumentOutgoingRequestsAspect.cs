@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Runtime.Serialization;
+using System.Text;
 using System.Threading.Tasks;
 using ClientExample;
 using PostSharp.Aspects;
 using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Formatters;
 using PostSharp.Serialization;
 using static PostSharp.Patterns.Diagnostics.SemanticMessageBuilder;
 
-[assembly: InstrumentOutgoingRequestsAspect( AttributeTargetAssemblies = "System.Net.Http", 
+// The following attribute intercepts all calls to the specified methods of HttpClient.
+[assembly: InstrumentOutgoingRequestsAspect( 
+    AttributeTargetAssemblies = "System.Net.Http", 
     AttributeTargetTypes = "System.Net.Http.HttpClient", 
     AttributeTargetMembers = "regex:(Get*|Delete|Post|Push|Patch)Async" )]
 
@@ -16,7 +22,7 @@ namespace ClientExample
     [PSerializable]
     internal class InstrumentOutgoingRequestsAspect : MethodInterceptionAspect
     {
-        private static readonly LogSource logger = LogSource.Get();
+        private static readonly LogSource logSource = LogSource.Get();
 
         public override async Task OnInvokeAsync( MethodInterceptionArgs args )
         {
@@ -25,13 +31,66 @@ namespace ClientExample
             
             var verb = Trim( args.Method.Name, "Async" );
 
-            using ( var activity = logger.Default.OpenActivity(  Semantic( verb,  ("Url", args.Arguments[0] ) ) ) )
+            using ( var activity = logSource.Default.OpenActivity(  Semantic( verb,  ("Url", args.Arguments[0] ) ) ) )
             {
                 try
                 {
+                    // TODO: this implementation conflicts with System.Diagnostics.Activity.
                     
+                    
+                    // Remove headers.
                     http.DefaultRequestHeaders.Remove( "Request-Id" );
-                    http.DefaultRequestHeaders.Add( "Request-Id", activity.ContextId );
+                    http.DefaultRequestHeaders.Remove( "Correlation-Context" );
+                    
+                    
+                    // Set Request-Id header.
+                    http.DefaultRequestHeaders.Add( "Request-Id", activity.Context.SyntheticId );
+
+
+                    // Generate the Correlation-Context header.
+                    UnsafeStringBuilder correlationContextBuilder = null;
+                    var propertyNames = new HashSet<string>();
+                    try
+                    {
+                        activity.Context.ForEachProperty((LoggingProperty property, object value, ref object state) =>
+                        {
+                            if (property.IsBaggage)
+                            {
+                                if (correlationContextBuilder == null)
+                                {
+                                    propertyNames = new HashSet<string>();
+                                    correlationContextBuilder = new UnsafeStringBuilder(1024);
+                                }
+
+                                if (propertyNames.Add(property.Name))
+                                {
+
+                                    if (correlationContextBuilder.Length > 0)
+                                    {
+                                        correlationContextBuilder.Append(", ");
+                                    }
+
+                                    correlationContextBuilder.Append(property.Name);
+                                    correlationContextBuilder.Append('=');
+
+                                    var formatter =
+                                        property.Formatter ?? LoggingServices.Formatters.Get(value.GetType());
+
+                                    formatter.Write(correlationContextBuilder, value);
+                                }
+                            }
+                        });
+
+                        if (correlationContextBuilder != null)
+                        {
+                            http.DefaultRequestHeaders.Add("Correlation-Context", correlationContextBuilder.ToString());
+                        }
+                    }
+                    finally
+                    {
+                        correlationContextBuilder?.Dispose();
+                    }
+
 
                     var t = base.OnInvokeAsync( args );
 
@@ -78,16 +137,7 @@ namespace ClientExample
 
         }
 
-        private static string Trim( string s, string suffix )
-        {
-            if ( s.EndsWith( suffix ) )
-            {
-                return s.Substring( 0, s.Length - suffix.Length );
-            }
-            else
-            {
-                return s;
-            }
-        }
+        private static string Trim( string s, string suffix ) 
+            => s.EndsWith( suffix ) ? s.Substring( 0, s.Length - suffix.Length ) : s;
     }
 }
