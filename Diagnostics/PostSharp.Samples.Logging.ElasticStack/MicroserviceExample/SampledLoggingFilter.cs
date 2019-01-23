@@ -32,7 +32,7 @@ namespace MicroserviceExample
 
             if ( IsInitialized && IsLogged(context))
             {
-                using (LoggingServices.DefaultBackend.WithVerbosityConfiguration(verbosityManager))
+                using ( verbosityManager.Use() )
                 {
                     await next();
                 }
