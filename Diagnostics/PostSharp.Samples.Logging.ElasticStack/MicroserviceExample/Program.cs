@@ -40,8 +40,12 @@ namespace MicroserviceExample
                 LoggingServices.Formatters.Register(new ActionResultFormatter());
                 LoggingServices.Formatters.Register(new ObjectResultFormatter());
 
+                // SampledLoggingFilter.Initialize(backend);
+                // LoggingServices.DefaultBackend.DefaultContextLocalConfiguration.Verbosity.IsEnabled = false;
+                
 
 
+                
                 // Execute the web app.
                 CreateWebHostBuilder(args).Build().Run();
 

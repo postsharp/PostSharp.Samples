@@ -8,17 +8,16 @@ using static PostSharp.Patterns.Diagnostics.SemanticMessageBuilder;
 
 namespace MicroserviceExample
 {
-    [Log( AttributeExclude = true )]
+    [Log(AttributeExclude = true)]
     public class LoggingActionFilter : IAsyncActionFilter
     {
         private static readonly LogSource logger = LogSource.Get();
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-
             // Read the Request-Id header so we can assign it to the activity.
             string parentOperationId = context.HttpContext.Request.Headers["Request-Id"];
-            string correlationContext = context.HttpContext.Request.Headers["Correlation-Context"];
+            
 
             OpenActivityOptions options = default;
 
@@ -31,8 +30,9 @@ namespace MicroserviceExample
             {
                 options.IsSyntheticRootId = true;
             }
-            
-            // Define the baggage.
+
+            // Process cross-context properties (aka baggage).
+            string correlationContext = context.HttpContext.Request.Headers["Correlation-Context"];
             if (!string.IsNullOrEmpty(correlationContext))
             {
                 var properties = new List<LoggingProperty>();
@@ -42,16 +42,15 @@ namespace MicroserviceExample
                     if (posOfEqual <= 0) continue;
                     var propertyName = pair.Substring(0, posOfEqual);
                     var propertyValue = pair.Substring(posOfEqual + 1);
-                    properties.Add(new LoggingProperty(propertyName, propertyValue) { IsBaggage = true});
-                    
+                    properties.Add(new LoggingProperty(propertyName, propertyValue) {IsBaggage = true});
                 }
 
                 options.Properties = properties.ToArray();
             }
 
             var request = context.HttpContext.Request;
-            using (var activity = logger.Default.OpenActivity( Semantic("Request", ("Path", request.Path),
-                                                ("Query", request.QueryString), ("Method", request.Method)), options))
+            using (var activity = logger.Default.OpenActivity(Semantic("Request", ("Path", request.Path),
+                ("Query", request.QueryString), ("Method", request.Method)), options))
             {
                 try
                 {
@@ -62,26 +61,19 @@ namespace MicroserviceExample
                     if (response.StatusCode >= (int) HttpStatusCode.OK && response.StatusCode <= 299)
                     {
                         // Success.
-                        activity.SetOutcome( LogLevel.Info, Semantic("Success", ("StatusCode", response.StatusCode)));
+                        activity.SetOutcome(LogLevel.Info, Semantic("Success", ("StatusCode", response.StatusCode)));
                     }
                     else
                     {
                         // Failure.
-                        activity.SetOutcome( LogLevel.Warning, Semantic("Failure", ("StatusCode", response.StatusCode)));
+                        activity.SetOutcome(LogLevel.Warning, Semantic("Failure", ("StatusCode", response.StatusCode)));
                     }
-                    
                 }
                 catch (Exception e)
                 {
                     activity.SetException(e);
                 }
-                
             }
-                
-        
-
-
-
-    }
+        }
     }
 }

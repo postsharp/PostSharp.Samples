@@ -18,7 +18,16 @@ namespace MicroserviceExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices( IServiceCollection services )
         {
-            services.AddMvc( options => options.Filters.Add( typeof( LoggingActionFilter ) ) ).SetCompatibilityVersion( CompatibilityVersion.Version_2_1 );
+            
+            services.AddMvc(delegate(MvcOptions options)
+            {
+                options.Filters.Add(typeof(LoggingActionFilter));
+                if (SampledLoggingFilter.IsInitialized)
+                {
+                    options.Filters.Add(typeof(SampledLoggingFilter));
+                }
+            }).SetCompatibilityVersion( CompatibilityVersion.Version_2_1 );
+            
             services.AddHttpContextAccessor();
             
         }
