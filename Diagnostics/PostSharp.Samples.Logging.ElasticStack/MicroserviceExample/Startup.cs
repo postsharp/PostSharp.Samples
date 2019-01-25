@@ -22,9 +22,9 @@ namespace MicroserviceExample
             services.AddMvc(delegate(MvcOptions options)
             {
                 options.Filters.Add(typeof(LoggingActionFilter));
-                if (SampledLoggingFilter.IsInitialized)
+                if (SampledLoggingActionFilter.IsInitialized)
                 {
-                    options.Filters.Add(typeof(SampledLoggingFilter));
+                    options.Filters.Add(typeof(SampledLoggingActionFilter));
                 }
             }).SetCompatibilityVersion( CompatibilityVersion.Version_2_1 );
             

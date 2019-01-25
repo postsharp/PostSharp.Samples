@@ -6,7 +6,7 @@ using PostSharp.Patterns.Diagnostics;
 namespace MicroserviceExample
 {
     [Log(AttributeExclude = true)]
-    public class SampledLoggingFilter : IAsyncActionFilter
+    public class SampledLoggingActionFilter : IAsyncActionFilter
     {
         private static readonly Random random = new Random();
         private static LoggingVerbosityConfiguration verbosityManager;

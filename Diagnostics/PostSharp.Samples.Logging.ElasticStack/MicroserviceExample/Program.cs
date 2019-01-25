@@ -33,6 +33,7 @@ namespace MicroserviceExample
                 backend.Options.IncludeActivityExecutionTime = true;
                 backend.Options.IncludeExceptionDetails = true;
                 backend.Options.SemanticParametersTreatedSemantically = SemanticParameterKind.All;
+                backend.Options.IncludedSpecialProperties = SerilogSpecialProperties.All;
                 backend.Options.ContextIdGenerationStrategy = ContextIdGenerationStrategy.Hierarchical;
                 LoggingServices.DefaultBackend = backend;
 
@@ -41,7 +42,7 @@ namespace MicroserviceExample
                 LoggingServices.Formatters.Register(new ObjectResultFormatter());
 
                 // SampledLoggingFilter.Initialize(backend);
-                // LoggingServices.DefaultBackend.DefaultContextLocalConfiguration.Verbosity.IsEnabled = false;
+                // LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
                 
 
 

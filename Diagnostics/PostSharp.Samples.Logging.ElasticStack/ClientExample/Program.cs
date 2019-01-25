@@ -29,7 +29,7 @@ namespace ClientExample
                 backend.Options.IncludeActivityExecutionTime = true;
                 backend.Options.IncludeExceptionDetails = true;
                 backend.Options.SemanticParametersTreatedSemantically = SemanticParameterKind.All;
-                backend.Options.IncludedSpecialProperties = SerilogSpecialProperties.None;
+                backend.Options.IncludedSpecialProperties = SerilogSpecialProperties.All;
                 backend.Options.ContextIdGenerationStrategy = ContextIdGenerationStrategy.Hierarchical;
                 LoggingServices.DefaultBackend = backend;
 
