@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.props" Condition="Exists('..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.props')" />
+  <Import Project="..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.props" Condition="Exists('..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -39,8 +39,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PostSharp, Version=6.1.6.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PostSharp.Redist.6.1.6-preview\lib\net45\PostSharp.dll</HintPath>
+    <Reference Include="PostSharp, Version=6.1.13.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PostSharp.Redist.6.1.13-rc\lib\net45\PostSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,10 +65,10 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.props'))" />
-    <Error Condition="!Exists('..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.targets'))" />
   </Target>
-  <Import Project="..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.targets" Condition="Exists('..\..\packages\PostSharp.6.1.6-preview\build\PostSharp.targets')" />
+  <Import Project="..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.targets" Condition="Exists('..\..\packages\PostSharp.6.1.13-rc\build\PostSharp.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

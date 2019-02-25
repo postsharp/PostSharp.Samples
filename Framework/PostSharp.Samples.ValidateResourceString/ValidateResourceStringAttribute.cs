@@ -123,9 +123,6 @@ namespace PostSharp.Samples.ValidateResourceString
       /// <returns></returns>
       public override object VisitMethodCallExpression(IMethodCallExpression expression)
       {
-                var logger = BuildTimeLogger.GetInstance("MyCategory");
-                logger.Write("Visiting call to {0}.", expression.Method);
-
         if (expression.Method == parameter.Member)
         {
           // We are inspecting the call to the method of interest.    
