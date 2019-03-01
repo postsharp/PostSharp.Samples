@@ -14,14 +14,20 @@ namespace PostSharp.Samples.Profiling
         static volatile bool cancel;
         private static void Main(string[] args)
         {
-            TelemetryConfiguration telemetryConfiguration = new TelemetryConfiguration("4fe9fc01-23cc-40ee-94e1-6dc532d861b9");
+            // TODO: Add your own instrumentation key.
+            const string instrumentationKey = "4fe9fc01-23cc-40ee-94e1-6dc532d861b9";
+
+            TelemetryConfiguration telemetryConfiguration = new TelemetryConfiguration(instrumentationKey);
             TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
             if ( ! telemetryClient.IsEnabled() )
             {
                 Console.Write("TelemetryClient is not enabled.");
                 return;
             }
-            ProfilingServices.Initialize(telemetryClient, TimeSpan.FromSeconds(10));
+            TimeSpan period = TimeSpan.FromSeconds(10);
+            ProfilingServices.Initialize(telemetryClient, );
+
+            Console.WriteLine($"Sampling every {period.TotalSeconds} seconds. Press Ctrl-C to stop, then wait a few seconds for completion.");
 
             Console.CancelKeyPress += OnCancel;
 
@@ -44,7 +50,7 @@ namespace PostSharp.Samples.Profiling
 
         private static void OnCancel(object sender, ConsoleCancelEventArgs e)
         {
-            Console.WriteLine("Cancelling.");
+            Console.WriteLine("Cancelling. Please wait until completion, otherwise the Application Insights buffer won't be flushed.");
             cancel = true;
             e.Cancel = true;
         }

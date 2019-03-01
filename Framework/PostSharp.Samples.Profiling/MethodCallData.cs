@@ -5,7 +5,6 @@ namespace PostSharp.Samples.Profiling
 {
     public struct MethodCallData
     {
-        
         internal MetricData MetricData;
 
         private long _kernelTimestamp;
@@ -23,7 +22,7 @@ namespace PostSharp.Samples.Profiling
             this.Resume();
         }
 
-        public bool IsNull => this._asyncTimestamp == 0;
+        internal bool IsNull => this._asyncTimestamp == 0;
 
         internal MetricMetadata Metadata { get; private set; }
         
