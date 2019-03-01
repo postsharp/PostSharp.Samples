@@ -15,7 +15,7 @@ The aspect measures a few key metrics:
 	method calls `await Task.Delay`, this time is *not* included.
     
  * *Async Time* is the time between the beginning and the end of a method. For non-async methods, this metric
-	equals the Thread Time. If a method calls `Thread.Sleep` or `await Task.Delay`, this time is *not* included.
+	equals the Thread Time. If a method calls `Thread.Sleep` or `await Task.Delay`, this time *is* included.
 
 All the metrics above also include the time spent in children methods.
 
