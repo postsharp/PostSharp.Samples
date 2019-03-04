@@ -18,4 +18,4 @@ After you execute the file, you should find the log in the `bin\Debug` directory
 
 ## Documentation
 
-[Logging to the Serilog](http://doc.postsharp.net/serilog)
+[Logging to the Serilog](https://doc.postsharp.net/serilog)

@@ -19,4 +19,4 @@ session is available. Click on this notification to open the log, and ignore the
 
 ## Documentation
 
-[Logging to the Loupe](http://doc.postsharp.net/loupe)
+[Logging to the Loupe](https://doc.postsharp.net/loupe)

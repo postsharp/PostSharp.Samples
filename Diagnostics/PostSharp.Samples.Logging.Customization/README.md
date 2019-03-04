@@ -6,7 +6,7 @@ This example demonstrates several ways to override the default behavior of PostS
 
 ## Documentation
 
-[Implementing a Custom Formatter](http://doc.postsharp.net/custom-formatter)
+[Implementing a Custom Formatter](https://doc.postsharp.net/custom-formatter)
 
-[Implementing an Adapter to a Custom Logging Framework](http://doc.postsharp.net/custom-logging-backend)
+[Implementing an Adapter to a Custom Logging Framework](https://doc.postsharp.net/custom-logging-backend)
 

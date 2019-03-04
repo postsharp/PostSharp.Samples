@@ -18,4 +18,4 @@ In this example, the log is only printed to the console. No file is created.
 
 ## Documentation
 
-[Logging to the Common.Logging](http://doc.postsharp.net/common-logging)
+[Logging to the Common.Logging](https://doc.postsharp.net/common-logging)
