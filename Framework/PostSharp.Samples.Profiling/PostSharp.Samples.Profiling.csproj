@@ -59,11 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcludedTimeData.cs" />
     <Compile Include="MethodCallData.cs" />
     <Compile Include="MetricAccessor.cs" />
     <Compile Include="MetricData.cs" />
     <Compile Include="ProfileAttribute.cs" />
-    <Compile Include="ProfiledMethod.cs" />
+    <Compile Include="MetricMetadata.cs" />
     <Compile Include="ProfilingServices.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
