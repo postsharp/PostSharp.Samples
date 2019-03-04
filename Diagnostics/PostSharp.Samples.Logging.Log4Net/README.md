@@ -18,4 +18,4 @@ After you execute the file, you should find the log in the `bin\Debug` directory
 
 ## Documentation
 
-[Logging to the log4net](http://doc.postsharp.net/log4net)
+[Logging to the log4net](https://doc.postsharp.net/log4net)

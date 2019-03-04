@@ -17,4 +17,4 @@ In this example, the log is only printed to the console. No file is created.
 
 ## Documentation
 
-[Logging to the system console](http://doc.postsharp.net/logging-console)
+[Logging to the system console](https://doc.postsharp.net/logging-console)

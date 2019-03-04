@@ -39,6 +39,6 @@ The `[Log]` aspect works out of the box. It is highly optimized for run-time per
 You can set up logging in a few minutes without modifying your existing source code. 
 
 
-See http://doc.postsharp.net/logging.
+See https://doc.postsharp.net/logging.
 
 

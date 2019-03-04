@@ -5,4 +5,4 @@ We chose `ServiceStack.Logging` as the example framework, but you can easily fol
 
 ## Documentation
 
-[Implementing an Adapter to a Custom Logging Framework](http://doc.postsharp.net/custom-logging-backend)
+[Implementing an Adapter to a Custom Logging Framework](https://doc.postsharp.net/custom-logging-backend)

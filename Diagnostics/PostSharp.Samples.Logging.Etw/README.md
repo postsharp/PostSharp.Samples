@@ -25,4 +25,4 @@ To view the log produced by this example, you need to attach a log collector:
 
 ## Documentation
 
-[Logging to the etw](http://doc.postsharp.net/etw)
+[Logging to the etw](https://doc.postsharp.net/etw)
