@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Threading;
 using PostSharp.Patterns.Diagnostics;
+using static PostSharp.Patterns.Diagnostics.FormattedMessageBuilder;
 
 namespace PostSharp.Samples.Logging.BusinessLogic
 {
   public class QueueProcessor
   {
-    private static readonly Logger logger = Logger.GetLogger();
+    private static readonly LogSource logSource = LogSource.Get();
 
     public static void ProcessQueue(string queuePath)
     {
@@ -19,14 +20,14 @@ namespace PostSharp.Samples.Logging.BusinessLogic
 
     private static void ProcessItem(QueueItem item)
     {
-      var activity = logger.OpenActivity("Processing item {item}", item);
+      var activity = logSource.Default.OpenActivity(Formatted("Processing item {item}", item));
       try
       {
         var request = RequestStorage.GetRequest(item.Id);
 
         if (item.Id == 56)
         {
-          activity.Write(LogLevel.Warning, "The entity {id} has been marked for deletion.", item.Id);
+          logSource.Warning.Write( Formatted("The entity {id} has been marked for deletion.", item.Id));
           activity.SetSuccess();
           return;
         }
