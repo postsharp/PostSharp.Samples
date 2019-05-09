@@ -25,7 +25,7 @@ namespace PostSharp.Samples.Profiling
                 return;
             }
             TimeSpan period = TimeSpan.FromSeconds(10);
-            ProfilingServices.Initialize(telemetryClient, );
+            ProfilingServices.Initialize(telemetryClient, period);
 
             Console.WriteLine($"Sampling every {period.TotalSeconds} seconds. Press Ctrl-C to stop, then wait a few seconds for completion.");
 
