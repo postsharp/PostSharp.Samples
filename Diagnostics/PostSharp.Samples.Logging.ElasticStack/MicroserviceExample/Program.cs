@@ -41,8 +41,9 @@ namespace MicroserviceExample
                 LoggingServices.Formatters.Register(new ActionResultFormatter());
                 LoggingServices.Formatters.Register(new ObjectResultFormatter());
 
-                // SampledLoggingFilter.Initialize(backend);
-                // LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
+                // Log only warnings by default, except for 10% randomly chosen requests.
+                SampledLoggingActionFilter.Initialize(backend);
+                LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
                 
 
 

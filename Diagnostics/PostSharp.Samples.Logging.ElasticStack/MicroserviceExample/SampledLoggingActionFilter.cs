@@ -14,6 +14,7 @@ namespace MicroserviceExample
         public static void Initialize( LoggingBackend backend )
         {
             verbosityManager = backend.CreateVerbosityConfiguration();
+            // Verbosity is High (Debug level) by default.
         }
 
         public static bool IsInitialized => verbosityManager != null;

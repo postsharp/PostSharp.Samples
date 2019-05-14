@@ -37,6 +37,9 @@ or you can download them on [GitHub](https://www.github.com/postsharp/PostSharp.
 | [PostSharp.Samples.Logging.CustomBackend.ServiceStack](Diagnostics/PostSharp.Samples.Logging.CustomBackend.ServiceStack/)  | Demonstrates how to implement a PostSharp Logging adapter for your custom logging framework.   | 
 | [PostSharp.Samples.Logging.Audit](Diagnostics/PostSharp.Samples.Audit/)  | Shows how to append an audit record to a database when a method is invoked.   |
 | [PostSharp.Samples.Logging.Audit.Extended](Diagnostics/PostSharp.Samples.Audit.Extended/)  | Shows how to add custom pieces of information to the audit record.   | 
+| **Distributed Diagnostics with Elastic Search**                 
+| [PostSharp.Samples.Logging.ElasticStack/MicroserviceExample](Diagnostics/PostSharp.Samples.Logging.ElasticStack/MicroserviceExample/)                 |  The server-side service demonstrating correlation of logs of a distributed application with Elastic Search. | 
+| [PostSharp.Samples.Logging.ElasticStack/ClientExample](Diagnostics/PostSharp.Samples.Logging.ElasticStack/ClientExample/)                 |  The server-side service demonstrating correlation of logs of a distributed application with Elastic Search.  | 
 | **XAML**                 
 | [PostSharp.Samples.Xaml](Xaml/PostSharp.Samples.Xaml/)                                              | Demonstrates a few ready-made aspects that are useful for XAML                               | 
 | **Caching**                 
