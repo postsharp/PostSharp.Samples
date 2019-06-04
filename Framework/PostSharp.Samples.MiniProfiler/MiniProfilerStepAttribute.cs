@@ -1,8 +1,8 @@
-﻿using System;
-using System.Reflection;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Serialization;
 using StackExchange.Profiling;
+using System;
+using System.Reflection;
 
 namespace PostSharp.Samples.MiniProfiler
 {

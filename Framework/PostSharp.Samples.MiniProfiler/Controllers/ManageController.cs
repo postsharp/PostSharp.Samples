@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PostSharp.Samples.MiniProfiler.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace PostSharp.Samples.MiniProfiler.Controllers
 {
@@ -88,7 +88,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
       {
         message = ManageMessageId.Error;
       }
-      return RedirectToAction("ManageLogins", new {Message = message});
+      return RedirectToAction("ManageLogins", new { Message = message });
     }
 
     //
@@ -117,7 +117,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
         };
         await UserManager.SmsService.SendAsync(message);
       }
-      return RedirectToAction("VerifyPhoneNumber", new {PhoneNumber = model.Number});
+      return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
     }
 
     //
@@ -152,7 +152,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
     {
       var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
       // Send an SMS through the SMS provider to verify the phone number
-      return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel {PhoneNumber = phoneNumber});
+      return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
     }
 
     //
@@ -169,7 +169,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
         var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
         if (user != null)
           await SignInManager.SignInAsync(user, false, false);
-        return RedirectToAction("Index", new {Message = ManageMessageId.AddPhoneSuccess});
+        return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
       }
       // If we got this far, something failed, redisplay form
       ModelState.AddModelError("", "Failed to verify phone");
@@ -184,11 +184,11 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
     {
       var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
       if (!result.Succeeded)
-        return RedirectToAction("Index", new {Message = ManageMessageId.Error});
+        return RedirectToAction("Index", new { Message = ManageMessageId.Error });
       var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
       if (user != null)
         await SignInManager.SignInAsync(user, false, false);
-      return RedirectToAction("Index", new {Message = ManageMessageId.RemovePhoneSuccess});
+      return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
     }
 
     //
@@ -213,7 +213,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
         var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
         if (user != null)
           await SignInManager.SignInAsync(user, false, false);
-        return RedirectToAction("Index", new {Message = ManageMessageId.ChangePasswordSuccess});
+        return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
       }
       AddErrors(result);
       return View(model);
@@ -240,7 +240,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
           var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
           if (user != null)
             await SignInManager.SignInAsync(user, false, false);
-          return RedirectToAction("Index", new {Message = ManageMessageId.SetPasswordSuccess});
+          return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
         }
         AddErrors(result);
       }
@@ -290,11 +290,11 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
     {
       var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
       if (loginInfo == null)
-        return RedirectToAction("ManageLogins", new {Message = ManageMessageId.Error});
+        return RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
       var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
       return result.Succeeded
         ? RedirectToAction("ManageLogins")
-        : RedirectToAction("ManageLogins", new {Message = ManageMessageId.Error});
+        : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
     }
 
     protected override void Dispose(bool disposing)

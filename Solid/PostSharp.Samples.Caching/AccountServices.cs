@@ -1,7 +1,7 @@
-﻿using System;
+﻿using PostSharp.Patterns.Caching;
+using System;
 using System.Collections.Generic;
 using System.Threading;
-using PostSharp.Patterns.Caching;
 
 namespace PostSharp.Samples.Caching
 {
@@ -14,7 +14,7 @@ namespace PostSharp.Samples.Caching
       Console.WriteLine($">> Retrieving the account {id} from database...");
       Thread.Sleep(1000);
 
-      var account = new Account {AccountId = id};
+      var account = new Account { AccountId = id };
 
       CachingServices.CurrentContext.AddDependency(account);
 

@@ -1,11 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Recording;
 using PostSharp.Patterns.Threading;
 using PostSharp.Patterns.Xaml;
+using System.Windows;
+using System.Windows.Input;
 
 namespace PostSharp.Samples.Xaml
 {
@@ -53,7 +53,7 @@ namespace PostSharp.Samples.Xaml
       RecordingServices.OperationFormatter = new MyOperationFormatter(RecordingServices.OperationFormatter);
 
       // Create initial data.
-      var customerViewModel = new CustomerViewModel {Customer = customer};
+      var customerViewModel = new CustomerViewModel { Customer = customer };
 
       customerViewModel.Customer.PrincipalAddress = customerViewModel.Customer.Addresses[0];
 

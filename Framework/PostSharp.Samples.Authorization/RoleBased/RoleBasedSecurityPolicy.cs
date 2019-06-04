@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PostSharp.Samples.Authorization.Framework;
+using System;
 using System.Collections.Generic;
-using PostSharp.Samples.Authorization.Framework;
 
 namespace PostSharp.Samples.Authorization.RoleBased
 {

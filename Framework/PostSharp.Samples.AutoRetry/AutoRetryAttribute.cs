@@ -1,11 +1,11 @@
-﻿using System;
+﻿using PostSharp.Aspects;
+using PostSharp.Serialization;
+using System;
 using System.Data;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using PostSharp.Aspects;
-using PostSharp.Serialization;
 
 namespace PostSharp.Samples.AutoRetry
 {
@@ -25,7 +25,7 @@ namespace PostSharp.Samples.AutoRetry
       // Set the default values for properties.
       MaxRetries = 5;
       Delay = 3;
-      HandledExceptions = new[] {typeof(WebException), typeof(DataException)};
+      HandledExceptions = new[] { typeof(WebException), typeof(DataException) };
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace PostSharp.Samples.AutoRetry
     /// <param name="args">Method invocation context.</param>
     public override void OnInvoke(MethodInterceptionArgs args)
     {
-      for (var i = 0;; i++)
+      for (var i = 0; ; i++)
         try
         {
           // Invoke the intercepted method.
@@ -87,7 +87,7 @@ namespace PostSharp.Samples.AutoRetry
 
     public override async Task OnInvokeAsync(MethodInterceptionArgs args)
     {
-      for (var i = 0;; i++)
+      for (var i = 0; ; i++)
         try
         {
           // Invoke the intercepted method.

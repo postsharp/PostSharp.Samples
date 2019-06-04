@@ -1,5 +1,5 @@
-﻿using System;
-using PostSharp.Patterns.Caching.Dependencies;
+﻿using PostSharp.Patterns.Caching.Dependencies;
+using System;
 
 namespace PostSharp.Samples.Caching
 {

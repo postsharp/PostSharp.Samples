@@ -1,7 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics.Audit;
 using PostSharp.Patterns.Diagnostics.Backends.Audit;
 using PostSharp.Patterns.Diagnostics.Contexts;
-using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using PostSharp.Patterns.Formatters;
 using PostSharp.Reflection;
 

@@ -6,7 +6,7 @@ namespace PostSharp.Samples.Encryption
   {
     private static void Main(string[] args)
     {
-      Login(new LoginData {Login = "login", Password = "password"});
+      Login(new LoginData { Login = "login", Password = "password" });
       Login("login", "password");
     }
 

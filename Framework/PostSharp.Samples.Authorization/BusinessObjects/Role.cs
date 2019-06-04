@@ -1,5 +1,5 @@
-﻿using System;
-using PostSharp.Samples.Authorization.RoleBased;
+﻿using PostSharp.Samples.Authorization.RoleBased;
+using System;
 
 namespace PostSharp.Samples.Authorization.BusinessObjects
 {

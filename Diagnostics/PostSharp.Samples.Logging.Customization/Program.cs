@@ -21,7 +21,7 @@ namespace PostSharp.Samples.Logging
       // Simulate some business logic.
       QueueProcessor.ProcessQueue(@".\Private$\SyncRequestQueue");
 
-      ExampleFormattable.Greet(new ExampleFormattable {FirstName = "Yuri", LastName = "Gagarin"});
+      ExampleFormattable.Greet(new ExampleFormattable { FirstName = "Yuri", LastName = "Gagarin" });
     }
   }
 }

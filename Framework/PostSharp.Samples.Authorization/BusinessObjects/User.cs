@@ -1,5 +1,5 @@
-﻿using System;
-using PostSharp.Samples.Authorization.Framework;
+﻿using PostSharp.Samples.Authorization.Framework;
+using System;
 
 namespace PostSharp.Samples.Authorization.BusinessObjects
 {

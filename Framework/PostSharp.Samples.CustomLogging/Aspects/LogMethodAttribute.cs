@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using System.Text;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Serialization;
+using System.Reflection;
+using System.Text;
 
 namespace PostSharp.Samples.CustomLogging.Aspects
 {

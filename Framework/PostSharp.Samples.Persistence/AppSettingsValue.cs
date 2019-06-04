@@ -1,9 +1,9 @@
-﻿using System;
-using System.Configuration;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
 using PostSharp.Serialization;
+using System;
+using System.Configuration;
 
 namespace PostSharp.Samples.Persistence
 {

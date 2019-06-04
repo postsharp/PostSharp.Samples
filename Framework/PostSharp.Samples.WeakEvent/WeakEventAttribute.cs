@@ -1,9 +1,9 @@
-﻿using System;
+﻿using PostSharp.Aspects;
+using PostSharp.Serialization;
+using System;
 using System.Collections.Immutable;
 using System.Reflection;
 using System.Threading;
-using PostSharp.Aspects;
-using PostSharp.Serialization;
 
 namespace PostSharp.Samples.WeakEvent
 {
@@ -124,7 +124,7 @@ namespace PostSharp.Samples.WeakEvent
 
         handlers =
           handlers.RemoveAll(
-            o => ((WeakReference)o).Target?.Equals(handler) ?? false);
+            o => ((WeakReference) o).Target?.Equals(handler) ?? false);
 
         return handlers.IsEmpty;
       }

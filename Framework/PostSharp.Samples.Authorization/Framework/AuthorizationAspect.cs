@@ -1,10 +1,10 @@
-﻿using System;
+﻿using PostSharp.Aspects;
+using PostSharp.Patterns.Contracts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Security;
-using PostSharp.Aspects;
-using PostSharp.Patterns.Contracts;
 
 namespace PostSharp.Samples.Authorization.Framework
 {
@@ -53,14 +53,14 @@ namespace PostSharp.Samples.Authorization.Framework
 
       var i = 0;
       foreach (var permissionFactory in _permissionFactories)
-      foreach (var semantic in semantics)
-      {
-        _permissions[i] = new OperationPermission<IPermission>(semantic, permissionFactory.ParameterIndex,
-          permissionFactory.Permission.CreatePermission(semantic));
+        foreach (var semantic in semantics)
+        {
+          _permissions[i] = new OperationPermission<IPermission>(semantic, permissionFactory.ParameterIndex,
+            permissionFactory.Permission.CreatePermission(semantic));
 
-        _hasPermissionForParameter[permissionFactory.ParameterIndex] = true;
-        i++;
-      }
+          _hasPermissionForParameter[permissionFactory.ParameterIndex] = true;
+          i++;
+        }
     }
 
     /// <summary>

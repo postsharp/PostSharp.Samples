@@ -1,6 +1,6 @@
-﻿using System;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Serialization;
+using System;
 
 namespace PostSharp.Samples.Encryption
 {

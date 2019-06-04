@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Threading;
-using PostSharp.Patterns.Diagnostics;
 using static PostSharp.Patterns.Diagnostics.FormattedMessageBuilder;
 
 namespace PostSharp.Samples.Logging.BusinessLogic
@@ -27,7 +27,7 @@ namespace PostSharp.Samples.Logging.BusinessLogic
 
         if (item.Id == 56)
         {
-          logSource.Warning.Write( Formatted("The entity {id} has been marked for deletion.", item.Id));
+          logSource.Warning.Write(Formatted("The entity {id} has been marked for deletion.", item.Id));
           activity.SetSuccess();
           return;
         }

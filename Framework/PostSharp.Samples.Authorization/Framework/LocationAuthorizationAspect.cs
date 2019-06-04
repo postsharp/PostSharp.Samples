@@ -1,8 +1,8 @@
-﻿using System;
-using System.Reflection;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
 using PostSharp.Reflection;
+using System;
+using System.Reflection;
 
 namespace PostSharp.Samples.Authorization.Framework
 {
@@ -28,7 +28,7 @@ namespace PostSharp.Samples.Authorization.Framework
     /// <param name="locationInfo">Field or property on which the aspect has been applied.</param>
     public void RuntimeInitialize(LocationInfo locationInfo)
     {
-      InitializePermissions(1, new[] {OperationSemantic.Read, OperationSemantic.Write});
+      InitializePermissions(1, new[] { OperationSemantic.Read, OperationSemantic.Write });
     }
 
     /// <summary>

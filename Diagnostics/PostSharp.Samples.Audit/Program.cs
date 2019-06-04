@@ -1,5 +1,5 @@
-﻿using System.Security.Principal;
-using PostSharp.Patterns.Diagnostics.Audit;
+﻿using PostSharp.Patterns.Diagnostics.Audit;
+using System.Security.Principal;
 
 namespace PostSharp.Samples.Audit
 {

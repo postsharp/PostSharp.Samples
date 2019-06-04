@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PostSharp.Patterns.Threading;
+using System;
 using System.Windows;
-using PostSharp.Patterns.Threading;
 
 namespace PostSharp.Samples.Threading.ThreadDispatching
 {

@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using PostSharp.Samples.Authorization.Framework;
+﻿using PostSharp.Samples.Authorization.Framework;
 using PostSharp.Samples.Authorization.RoleBased;
+using System.Collections.ObjectModel;
 
 namespace PostSharp.Samples.Authorization.BusinessObjects
 {

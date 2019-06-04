@@ -1,9 +1,9 @@
-﻿using System;
+﻿using PostSharp.Aspects;
+using PostSharp.Extensibility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using PostSharp.Aspects;
-using PostSharp.Extensibility;
 
 namespace PostSharp.Samples.Authorization.Framework
 {

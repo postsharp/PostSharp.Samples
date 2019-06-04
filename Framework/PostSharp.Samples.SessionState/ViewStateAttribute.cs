@@ -1,9 +1,9 @@
-﻿using System.Web.UI;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Aspects.Advices;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
 using PostSharp.Serialization;
+using System.Web.UI;
 
 namespace PostSharp.Samples.SessionState
 {

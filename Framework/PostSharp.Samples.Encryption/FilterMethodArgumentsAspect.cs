@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
+using System.Reflection;
 
 namespace PostSharp.Samples.Encryption
 {

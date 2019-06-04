@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+﻿using PostSharp.Patterns.Recording;
+using PostSharp.Patterns.Recording.Operations;
+using System.ComponentModel;
 using System.Reflection;
 using System.Text;
-using PostSharp.Patterns.Recording;
-using PostSharp.Patterns.Recording.Operations;
 
 namespace PostSharp.Samples.Xaml
 {

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Extensibility;
 using PostSharp.Reflection;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace JetBrains.Annotations
 {

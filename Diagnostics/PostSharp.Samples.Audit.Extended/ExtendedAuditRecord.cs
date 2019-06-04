@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Audit;
+using System;
+using System.Collections.Generic;
 
 namespace PostSharp.Samples.Audit.Extended
 {

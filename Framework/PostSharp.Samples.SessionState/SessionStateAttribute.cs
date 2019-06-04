@@ -1,7 +1,7 @@
-﻿using System.Web;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Reflection;
 using PostSharp.Serialization;
+using System.Web;
 
 namespace PostSharp.Samples.SessionState
 {

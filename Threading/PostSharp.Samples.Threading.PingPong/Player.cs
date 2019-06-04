@@ -1,8 +1,8 @@
-﻿using System;
+﻿using PostSharp.Patterns.Model;
+using PostSharp.Patterns.Threading;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using PostSharp.Patterns.Model;
-using PostSharp.Patterns.Threading;
 
 namespace PostSharp.Samples.Threading.PingPong
 {

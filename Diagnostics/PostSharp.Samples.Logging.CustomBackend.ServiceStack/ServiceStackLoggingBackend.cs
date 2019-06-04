@@ -1,7 +1,7 @@
-﻿using System;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Backends;
 using PostSharp.Patterns.Diagnostics.RecordBuilders;
+using System;
 
 namespace PostSharp.Samples.Logging.CustomBackend.ServiceStack
 {

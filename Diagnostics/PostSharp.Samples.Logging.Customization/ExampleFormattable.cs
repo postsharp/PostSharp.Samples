@@ -1,5 +1,5 @@
-﻿using System;
-using PostSharp.Patterns.Formatters;
+﻿using PostSharp.Patterns.Formatters;
+using System;
 using IFormattable = PostSharp.Patterns.Formatters.IFormattable;
 
 namespace PostSharp.Samples.Logging

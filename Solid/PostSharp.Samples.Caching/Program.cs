@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
+﻿using PostSharp.Patterns.Caching;
 using PostSharp.Patterns.Caching.Backends.Redis;
 using StackExchange.Redis;
+using System;
+using System.Linq;
 
 namespace PostSharp.Samples.Caching
 {

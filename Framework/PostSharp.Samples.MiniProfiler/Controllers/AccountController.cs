@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PostSharp.Samples.MiniProfiler.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace PostSharp.Samples.MiniProfiler.Controllers
 {
@@ -66,7 +66,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
         case SignInStatus.LockedOut:
           return View("Lockout");
         case SignInStatus.RequiresVerification:
-          return RedirectToAction("SendCode", new {ReturnUrl = returnUrl, model.RememberMe});
+          return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
         case SignInStatus.Failure:
         default:
           ModelState.AddModelError("", "Invalid login attempt.");
@@ -82,7 +82,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
       // Require that the user has already logged in via username/password or external login
       if (!await SignInManager.HasBeenVerifiedAsync())
         return View("Error");
-      return View(new VerifyCodeViewModel {Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe});
+      return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
     }
 
     //
@@ -131,7 +131,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
     {
       if (ModelState.IsValid)
       {
-        var user = new ApplicationUser {UserName = model.Email, Email = model.Email};
+        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
         var result = await UserManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
@@ -247,7 +247,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
     public ActionResult ExternalLogin(string provider, string returnUrl)
     {
       // Request a redirect to the external login provider
-      return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new {ReturnUrl = returnUrl}));
+      return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
     }
 
     //
@@ -259,8 +259,8 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
       if (userId == null)
         return View("Error");
       var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
-      var factorOptions = userFactors.Select(purpose => new SelectListItem {Text = purpose, Value = purpose}).ToList();
-      return View(new SendCodeViewModel {Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe});
+      var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
+      return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
     }
 
     //
@@ -276,7 +276,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
       // Generate the token and send it
       if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
         return View("Error");
-      return RedirectToAction("VerifyCode", new {Provider = model.SelectedProvider, model.ReturnUrl, model.RememberMe});
+      return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, model.ReturnUrl, model.RememberMe });
     }
 
     //
@@ -297,13 +297,13 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
         case SignInStatus.LockedOut:
           return View("Lockout");
         case SignInStatus.RequiresVerification:
-          return RedirectToAction("SendCode", new {ReturnUrl = returnUrl, RememberMe = false});
+          return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
         case SignInStatus.Failure:
         default:
           // If the user does not have an account, then prompt the user to create an account
           ViewBag.ReturnUrl = returnUrl;
           ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-          return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel {Email = loginInfo.Email});
+          return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
       }
     }
 
@@ -324,7 +324,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
         var info = await AuthenticationManager.GetExternalLoginInfoAsync();
         if (info == null)
           return View("ExternalLoginFailure");
-        var user = new ApplicationUser {UserName = model.Email, Email = model.Email};
+        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
         var result = await UserManager.CreateAsync(user);
         if (result.Succeeded)
         {
@@ -420,7 +420,7 @@ namespace PostSharp.Samples.MiniProfiler.Controllers
 
       public override void ExecuteResult(ControllerContext context)
       {
-        var properties = new AuthenticationProperties {RedirectUri = RedirectUri};
+        var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
         if (UserId != null)
           properties.Dictionary[XsrfKey] = UserId;
         context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);

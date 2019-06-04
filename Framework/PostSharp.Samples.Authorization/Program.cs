@@ -1,8 +1,8 @@
-﻿using System;
-using System.Security;
-using PostSharp.Samples.Authorization.BusinessObjects;
+﻿using PostSharp.Samples.Authorization.BusinessObjects;
 using PostSharp.Samples.Authorization.Framework;
 using PostSharp.Samples.Authorization.RoleBased;
+using System;
+using System.Security;
 using SecurityContext = PostSharp.Samples.Authorization.Framework.SecurityContext;
 
 namespace PostSharp.Samples.Authorization
@@ -34,21 +34,21 @@ namespace PostSharp.Samples.Authorization
 
       // Set up an object graph. This would typically be stored in a database.
       // Note that security is disabled at this point because SecurityContext.Current is null.
-      var company = new BusinessUnit {Name = "Contoso s.r.o."};
+      var company = new BusinessUnit { Name = "Contoso s.r.o." };
 
-      var mikki = new User(Guid.NewGuid()) {Name = "Mikki Grisham"};
+      var mikki = new User(Guid.NewGuid()) { Name = "Mikki Grisham" };
       company.UserRoleAssignments.Add(mikki, Role.Everyone);
 
 
-      var silva = new User(Guid.NewGuid()) {Name = "Silva Pollard"};
+      var silva = new User(Guid.NewGuid()) { Name = "Silva Pollard" };
       company.UserRoleAssignments.Add(silva, Role.Everyone);
 
-      var admin = new User(Guid.NewGuid()) {Name = "Administrator"};
+      var admin = new User(Guid.NewGuid()) { Name = "Administrator" };
       company.UserRoleAssignments.Add(admin, Role.Everyone);
       company.UserRoleAssignments.Add(admin, Role.Administrator);
 
 
-      var department = new BusinessUnit {ParentUnit = company, Name = "Trolls & gnomes wholesale"};
+      var department = new BusinessUnit { ParentUnit = company, Name = "Trolls & gnomes wholesale" };
       var invoice = new Invoice
       {
         Owner = mikki,

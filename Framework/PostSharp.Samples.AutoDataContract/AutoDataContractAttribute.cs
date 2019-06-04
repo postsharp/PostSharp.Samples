@@ -1,10 +1,10 @@
-﻿using System;
+﻿using PostSharp.Aspects;
+using PostSharp.Extensibility;
+using PostSharp.Reflection;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Serialization;
-using PostSharp.Aspects;
-using PostSharp.Extensibility;
-using PostSharp.Reflection;
 
 namespace PostSharp.Samples.AutoDataContract
 {

@@ -1,5 +1,5 @@
-﻿using System;
-using PostSharp.Samples.ExceptionHandling;
+﻿using PostSharp.Samples.ExceptionHandling;
+using System;
 
 // Add the AddContextOnException aspect to all methods in the assembly.
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Remoting.Channels;
 
 namespace PostSharp.Samples.WeakEvent
 {
@@ -21,7 +20,7 @@ namespace PostSharp.Samples.WeakEvent
       MyEvent(null, EventArgs.Empty);
       Console.WriteLine("EventHandlerCount: {0} (should be 0)", EventClient.EventHandlerCount);
     }
-    
+
     private static WeakReference AddCollectedEventClient()
     {
       var eventClient = new EventClient();

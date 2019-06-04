@@ -1,6 +1,6 @@
+using PostSharp.Patterns.Caching;
 using System;
 using System.Threading;
-using PostSharp.Patterns.Caching;
 
 namespace PostSharp.Samples.Caching
 {
@@ -12,7 +12,7 @@ namespace PostSharp.Samples.Caching
     {
       Console.WriteLine($">> Retrieving the customer {id} from database...");
       Thread.Sleep(1000);
-      return new Customer {Id = id, Name = "Rubber Debugging Duck"};
+      return new Customer { Id = id, Name = "Rubber Debugging Duck" };
     }
 
     [InvalidateCache(nameof(GetCustomer))]

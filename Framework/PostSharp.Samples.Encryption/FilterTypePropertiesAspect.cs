@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using PostSharp.Aspects;
 using PostSharp.Aspects.Advices;
 using PostSharp.Reflection;
 using PostSharp.Serialization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PostSharp.Samples.Encryption
 {

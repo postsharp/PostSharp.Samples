@@ -1,5 +1,5 @@
-﻿using System;
-using PostSharp.Samples.CustomLogging.Aspects;
+﻿using PostSharp.Samples.CustomLogging.Aspects;
+using System;
 
 // Add logging to every method in the assembly.
 
@@ -14,7 +14,7 @@ using PostSharp.Samples.CustomLogging.Aspects;
 // Add logging to System.Math to show we can add logging to anything.
 
 [assembly:
-  LogMethod(AttributePriority = 2, AttributeTargetAssemblies = "mscorlib", 
+  LogMethod(AttributePriority = 2, AttributeTargetAssemblies = "mscorlib",
     AttributeTargetTypes = "System.Math")]
 
 namespace PostSharp.Samples.CustomLogging

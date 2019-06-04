@@ -1,23 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PostSharp.Samples.NormalizeString
 {
-    class Program
+  class Program
+  {
+    [NormalizeString]
+    static string myField;
+
+    static void Main(string[] args)
     {
-        [NormalizeString]
-        static string myField;
 
-        static void Main( string[] args )
-        {
+      myField = "   Hello, world.    ";
 
-            myField = "   Hello, world.    ";
+      Console.WriteLine("\"" + myField + "\"");
 
-            Console.WriteLine( "\"" + myField + "\"" );
-            
-        }
     }
+  }
 }

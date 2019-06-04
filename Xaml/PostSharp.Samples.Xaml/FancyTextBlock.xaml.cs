@@ -1,6 +1,6 @@
-﻿using System.Windows.Controls;
-using PostSharp.Patterns.Contracts;
+﻿using PostSharp.Patterns.Contracts;
 using PostSharp.Patterns.Xaml;
+using System.Windows.Controls;
 
 namespace PostSharp.Samples.Xaml
 {

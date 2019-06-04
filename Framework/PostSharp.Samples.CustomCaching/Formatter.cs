@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PostSharp.Aspects;
+using System;
 using System.Text;
-using PostSharp.Aspects;
 
 namespace PostSharp.Samples.CustomCaching
 {

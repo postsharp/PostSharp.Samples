@@ -1,11 +1,10 @@
-﻿using System;
-using System.Reflection;
-using System.Resources;
-using PostSharp.Constraints;
+﻿using PostSharp.Constraints;
 using PostSharp.Extensibility;
-using PostSharp.Extensibility.BuildTimeLogging;
 using PostSharp.Reflection;
 using PostSharp.Reflection.MethodBody;
+using System;
+using System.Reflection;
+using System.Resources;
 
 namespace PostSharp.Samples.ValidateResourceString
 {
@@ -114,7 +113,7 @@ namespace PostSharp.Samples.ValidateResourceString
         this.parameter = parameter;
       }
 
-            
+
 
       /// <summary>
       ///   Visits a method call.

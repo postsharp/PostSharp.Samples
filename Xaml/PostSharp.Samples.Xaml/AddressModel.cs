@@ -1,8 +1,8 @@
-﻿using System;
+﻿using PostSharp.Patterns.Contracts;
+using PostSharp.Patterns.Model;
+using System;
 using System.ComponentModel;
 using System.Text;
-using PostSharp.Patterns.Contracts;
-using PostSharp.Patterns.Model;
 
 namespace PostSharp.Samples.Xaml
 {

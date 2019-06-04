@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using System.Security.Principal;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Audit;
+using System.Linq;
+using System.Security.Principal;
 
 namespace PostSharp.Samples.Audit.Extended
 {

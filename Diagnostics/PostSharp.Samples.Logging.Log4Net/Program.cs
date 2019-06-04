@@ -1,8 +1,8 @@
-﻿using System.IO;
-using log4net.Config;
+﻿using log4net.Config;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Backends.Log4Net;
 using PostSharp.Samples.Logging.BusinessLogic;
+using System.IO;
 
 // Add logging to all methods of this project.
 [assembly: Log]

@@ -1,6 +1,6 @@
-﻿using System.Transactions;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Serialization;
+using System.Transactions;
 
 namespace PostSharp.Samples.Transactions
 {

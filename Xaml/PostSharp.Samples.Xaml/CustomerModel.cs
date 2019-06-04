@@ -1,9 +1,9 @@
-﻿using System.IO;
-using System.Threading;
-using PostSharp.Patterns.Collections;
+﻿using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Contracts;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
+using System.IO;
+using System.Threading;
 
 namespace PostSharp.Samples.Xaml
 {

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using PostSharp.Samples.Transactions.Data;
+using System;
 using System.Linq;
-using PostSharp.Samples.Transactions.Data;
 
 namespace PostSharp.Samples.Transactions
 {

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Windows.Controls;
-using System.Windows.Threading;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
 using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
 using PostSharp.Serialization;
+using System;
+using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace PostSharp.Samples.Xaml
 {

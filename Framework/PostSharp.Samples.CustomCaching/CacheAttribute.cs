@@ -1,7 +1,7 @@
-﻿using System.Runtime.Caching;
-using System.Text;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Serialization;
+using System.Runtime.Caching;
+using System.Text;
 
 namespace PostSharp.Samples.CustomCaching
 {

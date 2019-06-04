@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Backends.Console;
 using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using PostSharp.Patterns.Formatters;

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Reflection;
-using PostSharp.Aspects;
+﻿using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
+using System;
+using System.Reflection;
 
 namespace PostSharp.Samples.Authorization.Framework
 {
@@ -22,7 +22,7 @@ namespace PostSharp.Samples.Authorization.Framework
     /// <param name="method">Method on which the aspect has been applied.</param>
     public void RuntimeInitialize(MethodBase method)
     {
-      InitializePermissions(method.GetParameters().Length + 1, new[] {OperationSemantic.Default});
+      InitializePermissions(method.GetParameters().Length + 1, new[] { OperationSemantic.Default });
     }
 
     /// <summary>
