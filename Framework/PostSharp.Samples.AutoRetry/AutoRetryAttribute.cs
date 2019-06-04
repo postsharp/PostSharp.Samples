@@ -74,7 +74,10 @@ namespace PostSharp.Samples.AutoRetry
               "Method failed with exception {0}. Sleeping {1} s and retrying. This was our attempt #{2}.",
               e.GetType().Namespace, Delay, i + 1);
 
-            Thread.Sleep(TimeSpan.FromSeconds(Delay));
+            if (Delay > 0)
+            {
+              Thread.Sleep(TimeSpan.FromSeconds(Delay));
+            }
 
             // Continue to the next iteration.
           }
@@ -111,7 +114,10 @@ namespace PostSharp.Samples.AutoRetry
               "Method failed with exception {0}. Sleeping {1} s and retrying. This was our attempt #{2}.",
               e.GetType().Namespace, Delay, i + 1);
 
-            await Task.Delay(TimeSpan.FromSeconds(Delay));
+            if (Delay > 0)
+            {
+              await Task.Delay(TimeSpan.FromSeconds(Delay));
+            }
 
             // Continue to the next iteration.
           }

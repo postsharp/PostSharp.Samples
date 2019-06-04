@@ -95,5 +95,6 @@ namespace PostSharp.Samples.AutoRetry
     {
       Console.WriteLine("{0} ms - {1}", stopwatch.ElapsedMilliseconds, message);
     }
+    
   }
 }
