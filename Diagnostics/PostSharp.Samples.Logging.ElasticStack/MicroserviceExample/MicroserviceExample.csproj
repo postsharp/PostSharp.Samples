@@ -25,8 +25,8 @@
 
 
   <ItemGroup Condition="'$(Configuration)'!='Development'">
-    <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.1.18" />
-    <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.1.18" />
+    <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.2.7" />
+    <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.2.7" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='Development'">

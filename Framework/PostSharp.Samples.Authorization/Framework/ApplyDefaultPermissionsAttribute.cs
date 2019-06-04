@@ -32,7 +32,6 @@ namespace PostSharp.Samples.Authorization.Framework
 
         var aspect = new LocationAuthorizationAspect();
         aspect.AddPermission(0, permissionFactory);
-        aspect.AddPermission(0, permissionFactory);
 
         yield return new AspectInstance(location, aspect);
       }
