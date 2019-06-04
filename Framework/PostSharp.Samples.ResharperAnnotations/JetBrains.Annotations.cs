@@ -55,14 +55,23 @@ namespace JetBrains.Annotations
       if (targetMethod != null)
       {
         if (targetMethod.IsAbstract || targetMethod.DeclaringType.Namespace.StartsWith("JetBrains."))
+        {
           yield break;
+        }
+
         if (targetMethod.IsSpecialName && targetMethod.Name.StartsWith("set_"))
+        {
           target = targetMethod.DeclaringType.GetProperty(targetMethod.Name.Substring(4),
             BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+        }
         else if (targetMethod.IsSpecialName && targetMethod.Name.StartsWith("get_"))
+        {
           yield break;
+        }
         else
+        {
           target = targetMethod.ReturnParameter;
+        }
       }
       else
       {
@@ -71,7 +80,9 @@ namespace JetBrains.Annotations
         {
           var targetMember = (MethodBase) targetParameter.Member;
           if (targetMember.IsAbstract || targetMember.DeclaringType.Namespace.StartsWith("JetBrains."))
+          {
             yield break;
+          }
         }
         else if (!(target is PropertyInfo))
         {

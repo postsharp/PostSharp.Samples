@@ -14,7 +14,9 @@ namespace PostSharp.Samples.Encryption
     public override object ApplyFilter(object value)
     {
       if (value == null)
+      {
         return null;
+      }
 
       GetFilterable(value).ApplyFilter();
 
@@ -28,7 +30,10 @@ namespace PostSharp.Samples.Encryption
       var filterable = value as IFilterable;
 
       if (filterable == null)
+      {
         throw new InvalidOperationException($"The type {value.GetType().FullName} is not IFilterable.");
+      }
+
       return filterable;
     }
   }

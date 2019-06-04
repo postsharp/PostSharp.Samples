@@ -27,7 +27,10 @@ namespace PostSharp.Samples.Threading.ThreadDispatching
       for (var i = 0; i <= 100; i++)
       {
         for (var j = 0; j < 1000000; j++)
+        {
           Math.Sin(random.NextDouble());
+        }
+
         SetProgress(i);
       }
 

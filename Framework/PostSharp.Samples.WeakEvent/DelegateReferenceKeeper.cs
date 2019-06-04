@@ -24,10 +24,12 @@ namespace PostSharp.Samples.WeakEvent
     {
       List<Delegate> list;
       if (table.TryGetValue(handler.Target ?? staticObj, out list))
+      {
         lock (list)
         {
           list.Remove(handler);
         }
+      }
     }
   }
 }

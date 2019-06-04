@@ -132,9 +132,11 @@ namespace PostSharp.Samples.ValidateResourceString
           {
             var resourceName = (string) constantExpression.Value;
             if (resourceManager.GetString(resourceName) == null)
+            {
               Message.Write(expression.ParentMethodBody.Method, SeverityType.Warning, "VRN04",
                 "The string \"{0}\" in method {1} is not a valid resource name.", resourceName,
                 expression.Method);
+            }
           }
         }
 

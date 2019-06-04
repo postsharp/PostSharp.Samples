@@ -53,6 +53,7 @@ namespace PostSharp.Samples.Authorization.Framework
 
       var i = 0;
       foreach (var permissionFactory in _permissionFactories)
+      {
         foreach (var semantic in semantics)
         {
           _permissions[i] = new OperationPermission<IPermission>(semantic, permissionFactory.ParameterIndex,
@@ -61,6 +62,7 @@ namespace PostSharp.Samples.Authorization.Framework
           _hasPermissionForParameter[permissionFactory.ParameterIndex] = true;
           i++;
         }
+      }
     }
 
     /// <summary>
@@ -89,25 +91,32 @@ namespace PostSharp.Samples.Authorization.Framework
     internal void RequirePermission(MemberInfo member, OperationSemantic semantic, int parameterIndex, object securable)
     {
       if (evaluatingPermissions)
+      {
         return;
+      }
 
       if (SecurityContext.Current == null)
+      {
         return;
+      }
 
       var subject = SecurityContext.Current.Subject;
       var policy = SecurityContext.Current.Policy;
 
       if (policy == null)
+      {
         return;
-
+      }
 
       try
       {
         evaluatingPermissions = true;
 
         foreach (var permission in _permissions)
+        {
           if ((permission.Semantic == OperationSemantic.Default || permission.Semantic == semantic) &&
               permission.ParameterIndex == parameterIndex)
+          {
             if (!policy.Evaluate(subject, permission.Permission, securable))
             {
               SecurityContext.Current.ExceptionHandler?.OnSecurityException(member, semantic, securable,
@@ -115,17 +124,27 @@ namespace PostSharp.Samples.Authorization.Framework
 
               string memberKind;
               if (member is FieldInfo)
+              {
                 memberKind = "field";
+              }
               else if (member is PropertyInfo)
+              {
                 memberKind = "property";
+              }
               else if (member is MethodBase)
+              {
                 memberKind = "method";
+              }
               else
+              {
                 throw new ArgumentOutOfRangeException(nameof(member));
+              }
 
               throw new SecurityException(
                 $"Cannot {semantic.ToString().ToLowerInvariant()} the {memberKind} {member.DeclaringType.Name}.{member.Name}: the subject '{subject.Name}' does not have the {permission.Permission.Name} permission on the object '{securable}'.");
             }
+          }
+        }
       }
       finally
       {

@@ -50,7 +50,10 @@ namespace ClientExample
           {
             activity.Context.ForEachProperty((LoggingProperty property, object value, ref object _) =>
             {
-              if (!property.IsBaggage || !propertyNames.Add(property.Name)) return;
+              if (!property.IsBaggage || !propertyNames.Add(property.Name))
+              {
+                return;
+              }
 
               if (correlationContextBuilder == null)
               {

@@ -39,7 +39,11 @@ namespace MicroserviceExample
         foreach (var pair in correlationContext.Split(',', StringSplitOptions.RemoveEmptyEntries))
         {
           var posOfEqual = pair.IndexOf('=');
-          if (posOfEqual <= 0) continue;
+          if (posOfEqual <= 0)
+          {
+            continue;
+          }
+
           var propertyName = pair.Substring(0, posOfEqual);
           var propertyValue = pair.Substring(posOfEqual + 1);
           properties.Add(new LoggingProperty(propertyName, propertyValue) { IsBaggage = true });

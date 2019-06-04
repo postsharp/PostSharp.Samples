@@ -35,7 +35,9 @@ namespace PostSharp.Samples.Profiling
     {
 #if DEBUG
       if (this.IsWriting)
+      {
         throw new InvalidOperationException();
+      }
 #endif
       var localVersion = this._version;
       this._version = localVersion + 1;
@@ -52,7 +54,9 @@ namespace PostSharp.Samples.Profiling
     {
 #if DEBUG
       if (this.IsWriting)
+      {
         throw new InvalidOperationException();
+      }
 #endif
       var localVersion = this._version;
       this._version = localVersion + 1;

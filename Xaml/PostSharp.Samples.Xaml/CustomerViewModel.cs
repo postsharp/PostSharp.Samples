@@ -11,7 +11,10 @@ namespace PostSharp.Samples.Xaml
     {
       get
       {
-        if (Customer == null) return "(No Data)";
+        if (Customer == null)
+        {
+          return "(No Data)";
+        }
 
         return string.Format("{0} {1} from {2}",
           Customer.FirstName,

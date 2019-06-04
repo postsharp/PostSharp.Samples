@@ -32,10 +32,14 @@ namespace PostSharp.Samples.Authorization.Framework
     public void OnEntry(MethodExecutionArgs args)
     {
       if (HasPermissionForParameter(0))
+      {
         RequirePermission(args.Method, OperationSemantic.Default, 0, args.Instance);
+      }
 
       for (var i = 0; i < args.Arguments.Count; i++)
+      {
         RequirePermission(args.Method, OperationSemantic.Default, i + 1, args.Arguments[i]);
+      }
     }
 
     public void OnExit(MethodExecutionArgs args)

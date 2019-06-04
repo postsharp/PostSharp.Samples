@@ -35,13 +35,21 @@ namespace PostSharp.Samples.Authorization.Framework
       if (aspect == null)
       {
         if (targetElement is MethodBase)
+        {
           aspect = new MethodAuthorizationAspect();
+        }
         else if (targetElement is PropertyInfo || targetElement is FieldInfo)
+        {
           aspect = new LocationAuthorizationAspect();
+        }
         else if (targetElement is ParameterInfo)
+        {
           aspect = new MethodAuthorizationAspect();
+        }
         else
+        {
           throw new Exception($"Unexpected aspect target: {targetElement.GetType().Name}");
+        }
 
         yield return new AspectInstance(targetElement, aspect);
       }
@@ -49,7 +57,9 @@ namespace PostSharp.Samples.Authorization.Framework
       var parameterIndex = 0;
 
       if (targetElement is ParameterInfo parameterInfo)
+      {
         parameterIndex = parameterInfo.Position + 1;
+      }
 
       aspect.AddPermission(parameterIndex, this);
     }

@@ -27,7 +27,9 @@ namespace PostSharp.Samples.Persistence
     public override void CompileTimeInitialize(LocationInfo targetLocation, AspectInfo aspectInfo)
     {
       if (settingName == null)
+      {
         settingName = targetLocation.Name;
+      }
     }
 
     public override bool CompileTimeValidate(LocationInfo locationInfo)
@@ -85,8 +87,10 @@ namespace PostSharp.Samples.Persistence
     public override void OnSetValue(LocationInterceptionArgs args)
     {
       if (isFetched)
+      {
         throw new InvalidOperationException(
           "The value of this field or property should not be changed after it has been read for the first time.");
+      }
 
       base.OnSetValue(args);
     }

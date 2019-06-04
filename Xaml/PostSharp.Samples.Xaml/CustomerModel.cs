@@ -52,9 +52,13 @@ namespace PostSharp.Samples.Xaml
           Thread.Sleep(1000);
 
           if (address == PrincipalAddress)
+          {
             stringWriter.WriteLine($"Principal address: {address}");
+          }
           else
+          {
             stringWriter.WriteLine($"Secondary address: {address}");
+          }
         }
       }
     }

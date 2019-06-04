@@ -25,7 +25,9 @@ namespace PostSharp.Samples.ExceptionHandling
       for (var i = 0; i < genericArguments.Length; i++)
       {
         if (i > 0)
+        {
           stringBuilder.Append(", ");
+        }
 
         stringBuilder.Append(genericArguments[i].Name);
       }
@@ -38,7 +40,9 @@ namespace PostSharp.Samples.ExceptionHandling
       for (var i = 0; i < arguments.Count; i++)
       {
         if (i > 0)
+        {
           stringBuilder.Append(", ");
+        }
 
         stringBuilder.Append(arguments[i]);
       }

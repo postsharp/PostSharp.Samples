@@ -66,7 +66,9 @@ namespace PostSharp.Samples.Profiling
     {
 #if DEBUG
       if (this._ownerThread != Thread.CurrentThread)
+      {
         throw new InvalidOperationException("Cannot get a mutable MetricAccessor from a different thread than the owner thread.");
+      }
 #endif
 
       if (this._metrics.Length <= method.Index)

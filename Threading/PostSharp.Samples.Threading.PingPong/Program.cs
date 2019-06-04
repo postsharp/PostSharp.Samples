@@ -45,7 +45,9 @@ namespace PostSharp.Samples.Threading.PingPong
 
       // Display winner and stats.
       for (var i = 0; i < games.Length; i++)
+      {
         consoleLogger.WriteLine(string.Format("Winner for game {0}: {1}", colors[i], games[i].Result), colors[i]);
+      }
 
       consoleLogger.WriteLine(string.Format("{0} totally received {1} balls", trump, await trump.GetCounter()));
       consoleLogger.WriteLine(string.Format("{0} totally received {1} balls", clinton, await clinton.GetCounter()));

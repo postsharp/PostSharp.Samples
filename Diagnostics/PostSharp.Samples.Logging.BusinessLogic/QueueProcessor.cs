@@ -33,10 +33,13 @@ namespace PostSharp.Samples.Logging.BusinessLogic
         }
 
         if (item.Id == 145)
+        {
           RequestStorage.GetUser(0);
+        }
         else
+        {
           RequestStorage.GetUser(14);
-
+        }
 
         Thread.Sleep(125);
 

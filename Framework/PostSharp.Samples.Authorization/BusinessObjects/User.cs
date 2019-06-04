@@ -22,8 +22,16 @@ namespace PostSharp.Samples.Authorization.BusinessObjects
 
     public override bool Equals(object obj)
     {
-      if (ReferenceEquals(null, obj)) return false;
-      if (ReferenceEquals(this, obj)) return true;
+      if (ReferenceEquals(null, obj))
+      {
+        return false;
+      }
+
+      if (ReferenceEquals(this, obj))
+      {
+        return true;
+      }
+
       return Id.Equals(((User) obj).Id);
     }
 

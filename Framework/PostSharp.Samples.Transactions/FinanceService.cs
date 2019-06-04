@@ -22,7 +22,9 @@ namespace PostSharp.Samples.Transactions
         account.Balance += amount;
 
         if (account.Balance < account.MinimalBalance)
+        {
           throw new InvalidOperationException("Account balance insufficient.");
+        }
 
         financeDb.Operations.Add(new Operation
         {

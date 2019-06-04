@@ -72,7 +72,9 @@ namespace PostSharp.Samples.SessionState
       var value = ViewState.Get()[name];
 
       if (value != null)
+      {
         args.Value = value;
+      }
     }
 
     /// <summary>

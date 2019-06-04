@@ -36,8 +36,12 @@ namespace PostSharp.Samples.AutoDataContract
       // Add a DataMember attribute to every relevant property.
       foreach (var property in
         targetType.GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance))
+      {
         if (property.CanWrite && !property.IsDefined(typeof(NotDataMemberAttribute)))
+        {
           yield return new AspectInstance(property, introduceDataMemberAspect);
+        }
+      }
     }
   }
 }

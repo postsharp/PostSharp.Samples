@@ -28,7 +28,9 @@ namespace PostSharp.Samples.Authorization.Framework
         targetType.GetProperties(BindingFlags.Instance | BindingFlags.Public).Cast<MemberInfo>()))
       {
         if (location.IsDefined(typeof(RequiresPermissionBaseAttribute), true))
+        {
           continue;
+        }
 
         var aspect = new LocationAuthorizationAspect();
         aspect.AddPermission(0, permissionFactory);

@@ -24,16 +24,36 @@ namespace PostSharp.Samples.Authorization.Framework
 
     bool IEquatable<IPermission>.Equals(IPermission other)
     {
-      if (ReferenceEquals(null, other)) return false;
-      if (ReferenceEquals(this, other)) return true;
+      if (ReferenceEquals(null, other))
+      {
+        return false;
+      }
+
+      if (ReferenceEquals(this, other))
+      {
+        return true;
+      }
+
       return string.Equals(Name, other.Name);
     }
 
     public override bool Equals(object obj)
     {
-      if (ReferenceEquals(null, obj)) return false;
-      if (ReferenceEquals(this, obj)) return true;
-      if (obj.GetType() != GetType()) return false;
+      if (ReferenceEquals(null, obj))
+      {
+        return false;
+      }
+
+      if (ReferenceEquals(this, obj))
+      {
+        return true;
+      }
+
+      if (obj.GetType() != GetType())
+      {
+        return false;
+      }
+
       return Equals((Permission) obj);
     }
 

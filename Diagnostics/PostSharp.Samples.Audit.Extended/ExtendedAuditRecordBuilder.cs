@@ -28,7 +28,9 @@ namespace PostSharp.Samples.Audit.Extended
       var businessObject = value as BusinessObject;
 
       if (businessObject != null)
+      {
         ((ExtendedAuditRecord) CurrentRecord).RelatedBusinessObjects.Add(businessObject);
+      }
     }
   }
 }

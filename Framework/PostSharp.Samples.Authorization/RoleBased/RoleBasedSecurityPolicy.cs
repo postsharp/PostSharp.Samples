@@ -21,8 +21,11 @@ namespace PostSharp.Samples.Authorization.RoleBased
       {
         List<Assignment> assignments;
         if (rolePermissionAssignments.TryGetValue(type, out assignments))
+        {
           foreach (var assignment in assignments)
+          {
             if (assignment.Permission.Equals(permission) && securableAncestor.HasRole(subject, assignment.Role))
+            {
               switch (assignment.Action)
               {
                 case PermissionAction.Grant:
@@ -33,6 +36,9 @@ namespace PostSharp.Samples.Authorization.RoleBased
                   // If only one permission evaluates to Revoke, the permission is refused.
                   return false;
               }
+            }
+          }
+        }
       }
 
       return granted;

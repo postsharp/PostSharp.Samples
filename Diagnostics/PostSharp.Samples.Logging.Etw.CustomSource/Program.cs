@@ -14,7 +14,9 @@ namespace PostSharp.Samples.Logging.Etw.CustomSource
     {
       var eventSourceBackend = new EventSourceLoggingBackend(new MyEventSource());
       if (eventSourceBackend.EventSource.ConstructionException != null)
+      {
         throw eventSourceBackend.EventSource.ConstructionException;
+      }
 
       LoggingServices.DefaultBackend = eventSourceBackend;
 

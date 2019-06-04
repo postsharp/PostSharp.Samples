@@ -36,7 +36,9 @@ namespace PostSharp.Samples.Encryption
       {
         var filter = filters[i];
         if (filter != null)
+        {
           args.Arguments[i] = filter.ApplyFilter(args.Arguments[i]);
+        }
       }
 
       args.Proceed();

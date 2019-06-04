@@ -49,12 +49,14 @@ namespace PostSharp.Samples.AutoRetry
       {
         int countRead;
         while ((countRead = stream.Read(buffer, 0, buffer.Length)) != 0)
+        {
           // Simulate a network failure.
           if (random.NextDouble() < failureRate)
           {
             WriteMessage("Network failure.");
             throw new WebException();
           }
+        }
       }
 
       // Simulate success.
@@ -74,12 +76,14 @@ namespace PostSharp.Samples.AutoRetry
       {
         int countRead;
         while ((countRead = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
+        {
           // Simulate a network failure.
           if (random.NextDouble() < failureRate)
           {
             WriteMessage("Network failure.");
             throw new WebException();
           }
+        }
       }
 
       // Simulate success.

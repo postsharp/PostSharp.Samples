@@ -31,20 +31,36 @@ namespace PostSharp.Samples.Xaml
       get
       {
         var stringBuilder = new StringBuilder();
-        if (Line1 != null) stringBuilder.Append(Line1);
+        if (Line1 != null)
+        {
+          stringBuilder.Append(Line1);
+        }
+
         if (Line2 != null)
         {
-          if (stringBuilder.Length > 0) stringBuilder.Append("; ");
+          if (stringBuilder.Length > 0)
+          {
+            stringBuilder.Append("; ");
+          }
+
           stringBuilder.Append(Line2);
         }
         if (Town != null)
         {
-          if (stringBuilder.Length > 0) stringBuilder.Append("; ");
+          if (stringBuilder.Length > 0)
+          {
+            stringBuilder.Append("; ");
+          }
+
           stringBuilder.Append(Town);
         }
         if (Country != null)
         {
-          if (stringBuilder.Length > 0) stringBuilder.Append("; ");
+          if (stringBuilder.Length > 0)
+          {
+            stringBuilder.Append("; ");
+          }
+
           stringBuilder.Append(Country);
         }
 

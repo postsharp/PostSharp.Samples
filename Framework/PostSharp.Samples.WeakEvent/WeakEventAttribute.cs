@@ -52,12 +52,14 @@ namespace PostSharp.Samples.WeakEvent
     public override void RuntimeInitialize(EventInfo eventInfo)
     {
       if (eventInfo.AddMethod.IsStatic)
+      {
         if (!initialized)
         {
           cleanUpCounter = 0;
           initialized = true;
           handlers = ImmutableArray<object>.Empty;
         }
+      }
     }
 
     #region Add
@@ -70,7 +72,9 @@ namespace PostSharp.Samples.WeakEvent
     {
       // Add the handler to our own list.
       if (AddHandler(args.Handler))
+      {
         args.AddHandler(null);
+      }
 
 
       // Register the handler to the client to prevent garbage collection of the handler.
@@ -92,7 +96,9 @@ namespace PostSharp.Samples.WeakEvent
       finally
       {
         if (lockTaken)
+        {
           spinLock.Exit();
+        }
       }
     }
 
@@ -108,7 +114,9 @@ namespace PostSharp.Samples.WeakEvent
     {
       // Remove the handler from our own list.
       if (RemoveHandler(args.Handler))
+      {
         args.RemoveHandler(null);
+      }
 
       // Remove the handler from the client.
       DelegateReferenceKeeper.RemoveReference(args.Handler);
@@ -131,7 +139,9 @@ namespace PostSharp.Samples.WeakEvent
       finally
       {
         if (lockTaken)
+        {
           spinLock.Exit();
+        }
       }
     }
 
@@ -181,6 +191,7 @@ namespace PostSharp.Samples.WeakEvent
       }
 
       if (needCleanUp && lastCleanUpCounter == cleanUpCounter)
+      {
         if (lastCleanUpCounter == cleanUpCounter)
         {
           var lockTaken = false;
@@ -194,9 +205,12 @@ namespace PostSharp.Samples.WeakEvent
           finally
           {
             if (lockTaken)
+            {
               spinLock.Exit();
+            }
           }
         }
+      }
     }
 
     #endregion

@@ -17,7 +17,10 @@ namespace PostSharp.Samples.CustomLogging.Aspects
       stringBuilder.Append("Setting ");
       Formatter.AppendTypeName(stringBuilder, args.Location.DeclaringType);
       if (args.Index.Count != 0)
+      {
         Formatter.AppendArguments(stringBuilder, args.Index);
+      }
+
       stringBuilder.Append(" = ");
       stringBuilder.Append(args.Value);
 

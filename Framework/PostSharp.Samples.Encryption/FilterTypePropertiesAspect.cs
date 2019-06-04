@@ -42,7 +42,9 @@ namespace PostSharp.Samples.Encryption
     internal void SetFilter(LocationInfo locationInfo, FilterAttribute filter)
     {
       if (frozen)
+      {
         throw new InvalidOperationException();
+      }
 
       filteredMembers.Add(locationInfo, filter);
     }

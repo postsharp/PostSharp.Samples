@@ -62,7 +62,10 @@ namespace PostSharp.Samples.Transactions
           Console.WriteLine(
             "------------------------------------------------------------------------------------------");
           foreach (var operation in account.Operations)
+          {
             Console.WriteLine("{0} - {1} - ${2}", operation.Time, operation.Description, operation.Amount);
+          }
+
           Console.WriteLine();
         }
       }
@@ -72,7 +75,9 @@ namespace PostSharp.Samples.Transactions
         Console.WriteLine("Orders");
         Console.WriteLine("----------------------------------------------------------------------------");
         foreach (var order in orderDb.Orders)
+        {
           Console.WriteLine("{0} - {1}", order.Description, order.TotalAmount);
+        }
       }
     }
 

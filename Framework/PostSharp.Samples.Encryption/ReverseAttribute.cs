@@ -11,13 +11,17 @@ namespace PostSharp.Samples.Encryption
     public override object ApplyFilter(object value)
     {
       if (value == null)
+      {
         return null;
+      }
 
       var s = (string) value;
 
       var stringBuilder = new StringBuilder(s.Length);
       for (var i = s.Length - 1; i >= 0; i--)
+      {
         stringBuilder.Append(s[i]);
+      }
 
       return stringBuilder.ToString();
     }

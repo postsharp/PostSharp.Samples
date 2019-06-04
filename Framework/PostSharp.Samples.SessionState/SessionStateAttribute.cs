@@ -34,7 +34,9 @@ namespace PostSharp.Samples.SessionState
     {
       var value = HttpContext.Current.Session[name];
       if (value != null)
+      {
         args.Value = value;
+      }
     }
 
     /// <summary>

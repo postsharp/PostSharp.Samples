@@ -73,7 +73,9 @@ namespace PostSharp.Samples.Xaml
       var openFileDialog = new SaveFileDialog();
 
       if (openFileDialog.ShowDialog().GetValueOrDefault())
+      {
         Save(openFileDialog.FileName);
+      }
     }
 
 

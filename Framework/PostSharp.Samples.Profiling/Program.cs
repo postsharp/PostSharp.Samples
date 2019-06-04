@@ -105,7 +105,9 @@ namespace PostSharp.Samples.Profiling
       {
         int countRead;
         while ((countRead = stream.Read(buffer, 0, buffer.Length)) != 0)
+        {
           hashAlgorithm.ComputeHash(buffer, 0, countRead);
+        }
       }
     }
 
@@ -120,7 +122,9 @@ namespace PostSharp.Samples.Profiling
       {
         int countRead;
         while ((countRead = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
+        {
           hashAlgorithm.ComputeHash(buffer, 0, countRead);
+        }
       }
     }
   }

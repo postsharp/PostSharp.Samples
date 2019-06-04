@@ -53,6 +53,7 @@ namespace PostSharp.Samples.AutoRetry
     public override void OnInvoke(MethodInterceptionArgs args)
     {
       for (var i = 0; ; i++)
+      {
         try
         {
           // Invoke the intercepted method.
@@ -83,11 +84,13 @@ namespace PostSharp.Samples.AutoRetry
             throw;
           }
         }
+      }
     }
 
     public override async Task OnInvokeAsync(MethodInterceptionArgs args)
     {
       for (var i = 0; ; i++)
+      {
         try
         {
           // Invoke the intercepted method.
@@ -118,6 +121,7 @@ namespace PostSharp.Samples.AutoRetry
             throw;
           }
         }
+      }
     }
 
 

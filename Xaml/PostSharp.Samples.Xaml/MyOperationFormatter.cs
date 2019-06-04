@@ -23,7 +23,9 @@ namespace PostSharp.Samples.Xaml
       for (var i = 0; i < input.Length; i++)
       {
         if (i > 0 && char.IsUpper(input[i]) && char.IsLower(input[i - 1]))
+        {
           output.Append(' ');
+        }
 
         output.Append(input[i]);
       }
@@ -34,7 +36,9 @@ namespace PostSharp.Samples.Xaml
     protected override string FormatOperationDescriptor(IOperationDescriptor operation)
     {
       if (operation.OperationKind != OperationKind.Method)
+      {
         return null;
+      }
 
       var descriptor = (MethodExecutionOperationDescriptor) operation;
 
@@ -53,9 +57,13 @@ namespace PostSharp.Samples.Xaml
         string displayName;
 
         if (attributes.Length > 0)
+        {
           displayName = attributes[0].DisplayName;
+        }
         else
+        {
           displayName = SplitString(descriptor.Method.Name.Substring(4));
+        }
 
         return string.Format("Set {0} to {1}", displayName, descriptor.Arguments[0] ?? "null");
       }
@@ -67,7 +75,9 @@ namespace PostSharp.Samples.Xaml
           descriptor.Method.GetCustomAttributes(typeof(DisplayNameAttribute), false);
 
         if (attributes.Length > 0)
+        {
           return attributes[0].DisplayName;
+        }
       }
 
       return null;

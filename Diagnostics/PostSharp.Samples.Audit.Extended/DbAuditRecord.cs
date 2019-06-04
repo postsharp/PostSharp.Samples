@@ -29,7 +29,9 @@ namespace PostSharp.Samples.Audit.Extended
       Console.WriteLine(
         $"Writing to the database: {{PrimaryBusinessObjectId={PrimaryBusinessObjectId}, Operation={Method}, Description=\"{Description}\", User={User}}}.");
       foreach (var id in RelatedBusinessObjectIds)
+      {
         Console.WriteLine($"Writing to database: correlation with BusinessObjectId={id}.");
+      }
     }
   }
 }

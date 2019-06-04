@@ -21,7 +21,9 @@ namespace PostSharp.Samples.MiniProfiler
     {
       // Don't apply the aspect to constructors, property getters, and so on.
       if (method.IsSpecialName)
+      {
         return false;
+      }
 
       return true;
     }
