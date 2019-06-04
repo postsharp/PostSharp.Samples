@@ -37,7 +37,7 @@ namespace PostSharp.Samples.Profiling
             if (this.IsWriting)
                 throw new InvalidOperationException();
 #endif
-            int localVersion = this._version;
+            var localVersion = this._version;
             this._version = localVersion + 1;
             Thread.MemoryBarrier();
 
@@ -54,7 +54,7 @@ namespace PostSharp.Samples.Profiling
             if (this.IsWriting)
                 throw new InvalidOperationException();
 #endif
-            int localVersion = this._version;
+            var localVersion = this._version;
             this._version = localVersion + 1;
             Thread.MemoryBarrier();
 
@@ -67,11 +67,11 @@ namespace PostSharp.Samples.Profiling
 
         public void GetData( out MetricData data )
         {
-            SpinWait spinWait = new SpinWait();
+            var spinWait = new SpinWait();
 
             while (true)
             {
-                int versionBefore = this._version;
+                var versionBefore = this._version;
 
                 while (this.IsWriting)
                 {

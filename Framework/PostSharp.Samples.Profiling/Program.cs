@@ -17,22 +17,22 @@ namespace PostSharp.Samples.Profiling
             // TODO: Add your own instrumentation key.
             const string instrumentationKey = "4fe9fc01-23cc-40ee-94e1-6dc532d861b9";
 
-            TelemetryConfiguration telemetryConfiguration = new TelemetryConfiguration(instrumentationKey);
-            TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
+            var telemetryConfiguration = new TelemetryConfiguration(instrumentationKey);
+            var telemetryClient = new TelemetryClient(telemetryConfiguration);
             if ( ! telemetryClient.IsEnabled() )
             {
                 Console.Write("TelemetryClient is not enabled.");
                 return;
             }
-            TimeSpan period = TimeSpan.FromSeconds(10);
+            var period = TimeSpan.FromSeconds(10);
             ProfilingServices.Initialize(telemetryClient, period);
 
             Console.WriteLine($"Sampling every {period.TotalSeconds} seconds. Press Ctrl-C to stop, then wait a few seconds for completion.");
 
             Console.CancelKeyPress += OnCancel;
 
-            Thread[] threads = new Thread[16];
-            for ( int i = 0; i < threads.Length; i++ )
+            var threads = new Thread[16];
+            for ( var i = 0; i < threads.Length; i++ )
             {
                 threads[i] = new Thread(ThreadMain);
                 threads[i].Start();

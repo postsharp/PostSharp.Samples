@@ -46,12 +46,12 @@ namespace PostSharp.Samples.Profiling
 
         internal void Pause()
         {
-            Win32.GetThreadTimes(Win32.GetCurrentThread(), out _, out _, out long kernelTime, out long userTime);
+            Win32.GetThreadTimes(Win32.GetCurrentThread(), out _, out _, out var kernelTime, out var userTime);
 
 
-            long cpuTime = (kernelTime - this._kernelTimestamp) + (userTime - this._userTimestamp);
+            var cpuTime = (kernelTime - this._kernelTimestamp) + (userTime - this._userTimestamp);
 
-            long threadTime = ProfilingServices.GetTimestamp() - this._threadTimestamp;
+            var threadTime = ProfilingServices.GetTimestamp() - this._threadTimestamp;
 
             this.MetricData.CpuTime += cpuTime;
             this.MetricData.ThreadTime += threadTime;

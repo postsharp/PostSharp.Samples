@@ -30,7 +30,7 @@ namespace PostSharp.Samples.Profiling
 
             if (_contextStack.Count > 0)
             {
-                MetricAccessor parentContext = _contextStack.Peek();
+                var parentContext = _contextStack.Peek();
                 parentContext.AddExclusion(excludedData);
             }
 
@@ -56,7 +56,7 @@ namespace PostSharp.Samples.Profiling
 
 
 
-            MetricAccessor sampleAccessor = GetAccessor(method);
+            var sampleAccessor = GetAccessor(method);
 
             sampleAccessor.AddData(data);
 

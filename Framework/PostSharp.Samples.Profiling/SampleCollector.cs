@@ -30,7 +30,7 @@ namespace PostSharp.Samples.Profiling
         {
             lock (this.registrationLock )
             {
-                MetricMetadata profiledMethod = new MetricMetadata(method, this.ProfiledMethodCount );
+                var profiledMethod = new MetricMetadata(method, this.ProfiledMethodCount );
 
                 if ( this.MetricsMetadata.Length <= this.ProfiledMethodCount)
                 {
@@ -61,13 +61,13 @@ namespace PostSharp.Samples.Profiling
 
             var treadLocalCollectorsCopy = this._threadLocalCollectors.Values;
 
-            long timestamp = ProfilingServices.GetTimestamp();
+            var timestamp = ProfilingServices.GetTimestamp();
 
-            for (int i = 0; i < metrics.Length; i++)
+            for (var i = 0; i < metrics.Length; i++)
             {
-                MetricMetadata method = profiledMethodsCopy[i];
+                var method = profiledMethodsCopy[i];
 
-                int attempts = 0;
+                var attempts = 0;
                 while ( true )
                 {
                     metrics[i].Timestamp = timestamp;
@@ -76,7 +76,7 @@ namespace PostSharp.Samples.Profiling
                     {
 
 
-                        if (threadLocalCollector.GetSample(method, out MetricData threadLocalData))
+                        if (threadLocalCollector.GetSample(method, out var threadLocalData))
                         {
                             metrics[i].AddData(threadLocalData);
                         }

@@ -52,7 +52,7 @@ namespace PostSharp.Samples.Profiling
 
         private void PublishMetrics(IReadOnlyList<MetricMetadata> methods, MetricData[] metrics)
         {
-            for ( int i = 0; i < metrics.Length; i++)
+            for ( var i = 0; i < metrics.Length; i++)
             {
                 MetricData lastSample;
                 if ( i < this.lastSamples.Length )
@@ -81,7 +81,7 @@ namespace PostSharp.Samples.Profiling
             if (metric.ExecutionCount > 0)
             {
 
-                Dictionary<string, double> metrics = new Dictionary<string, double>
+                var metrics = new Dictionary<string, double>
                 {
                     ["ExceptionCount"] = metric.ExceptionCount,
                     ["ExecutionCount"] = metric.ExecutionCount,
