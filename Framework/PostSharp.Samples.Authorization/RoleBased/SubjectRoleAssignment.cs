@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Contracts;
 using PostSharp.Samples.Authorization.Framework;
 
 namespace PostSharp.Samples.Authorization.RoleBased
@@ -13,7 +12,7 @@ namespace PostSharp.Samples.Authorization.RoleBased
     /// </summary>
     /// <param name="subject"></param>
     /// <param name="role"></param>
-    public SubjectRoleAssignment([Required] ISubject subject, [Required] IRole role)
+    public SubjectRoleAssignment(ISubject subject, IRole role)
     {
       Role = role;
       Subject = subject;

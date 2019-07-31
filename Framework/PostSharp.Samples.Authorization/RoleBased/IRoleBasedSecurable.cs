@@ -1,5 +1,4 @@
-﻿using PostSharp.Patterns.Contracts;
-using PostSharp.Samples.Authorization.Framework;
+﻿using PostSharp.Samples.Authorization.Framework;
 
 namespace PostSharp.Samples.Authorization.RoleBased
 {
@@ -24,6 +23,6 @@ namespace PostSharp.Samples.Authorization.RoleBased
     ///   <c>true</c> if <paramref name="subject" /> is a part of <paramref name="role" /> in the current object,
     ///   otherwise <c>null</c>.
     /// </returns>
-    bool HasRole([Required] ISubject subject, [Required] IRole role);
+    bool HasRole(ISubject subject, IRole role);
   }
 }

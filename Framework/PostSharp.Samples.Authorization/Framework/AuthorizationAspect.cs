@@ -1,5 +1,4 @@
 ﻿using PostSharp.Aspects;
-using PostSharp.Patterns.Contracts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -156,7 +155,7 @@ namespace PostSharp.Samples.Authorization.Framework
     [Serializable]
     private struct OperationPermission<T>
     {
-      public OperationPermission(OperationSemantic semantic, int parameterIndex, [Required] T permission)
+      public OperationPermission(OperationSemantic semantic, int parameterIndex, T permission)
       {
         Semantic = semantic;
         Permission = permission;
