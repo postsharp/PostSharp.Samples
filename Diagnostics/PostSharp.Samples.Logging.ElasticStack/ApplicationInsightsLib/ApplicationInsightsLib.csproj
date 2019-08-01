@@ -10,4 +10,5 @@
     <PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="2.6.0" />
   </ItemGroup>
 
+  <Import Project="..\..\..\PostSharp.Samples.targets"/>
 </Project>

@@ -57,5 +57,6 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
+  <Import Project="..\..\PostSharp.Samples.targets"/>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

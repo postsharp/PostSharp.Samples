@@ -68,5 +68,6 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="..\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems" Label="Shared" />
+  <Import Project="..\..\PostSharp.Samples.targets"/>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
