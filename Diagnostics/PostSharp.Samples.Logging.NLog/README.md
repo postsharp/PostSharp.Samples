@@ -18,4 +18,4 @@ After you execute the file, you should find the log in the `bin\Debug` directory
 
 ## Documentation
 
-[Logging to the log4net](https://doc.postsharp.net/nlog)
+[Logging to NLog](https://doc.postsharp.net/nlog)
