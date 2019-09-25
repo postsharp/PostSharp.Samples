@@ -35,21 +35,7 @@ namespace MicroserviceExample
       string correlationContext = context.HttpContext.Request.Headers["Correlation-Context"];
       if (!string.IsNullOrEmpty(correlationContext))
       {
-        var properties = new List<LoggingProperty>();
-        foreach (var pair in correlationContext.Split(',', StringSplitOptions.RemoveEmptyEntries))
-        {
-          var posOfEqual = pair.IndexOf('=');
-          if (posOfEqual <= 0)
-          {
-            continue;
-          }
-
-          var propertyName = pair.Substring(0, posOfEqual);
-          var propertyValue = pair.Substring(posOfEqual + 1);
-          properties.Add(new LoggingProperty(propertyName, propertyValue) { IsBaggage = true });
-        }
-
-        options.Properties = properties.ToArray();
+        options.Properties = ParseCorrelationContext(correlationContext)?.ToArray();
       }
 
       var request = context.HttpContext.Request;
@@ -78,6 +64,25 @@ namespace MicroserviceExample
           activity.SetException(e);
         }
       }
+    }
+
+    private static List<LoggingProperty> ParseCorrelationContext(string correlationContext)
+    {
+      var properties = new List<LoggingProperty>();
+      foreach (var pair in correlationContext.Split(',', StringSplitOptions.RemoveEmptyEntries))
+      {
+        var posOfEqual = pair.IndexOf('=');
+        if (posOfEqual <= 0)
+        {
+          continue;
+        }
+
+        var propertyName = pair.Substring(0, posOfEqual);
+        var propertyValue = pair.Substring(posOfEqual + 1);
+        properties.Add(new LoggingProperty(propertyName, propertyValue) { IsBaggage = true });
+      }
+
+      return properties;
     }
   }
 }

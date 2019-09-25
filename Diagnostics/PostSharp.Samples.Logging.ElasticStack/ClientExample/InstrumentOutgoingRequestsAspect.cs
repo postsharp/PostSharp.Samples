@@ -1,6 +1,7 @@
 ﻿using ClientExample;
 using PostSharp.Aspects;
 using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics.Contexts;
 using PostSharp.Patterns.Formatters;
 using PostSharp.Serialization;
 using System;
@@ -44,45 +45,10 @@ namespace ClientExample
 
 
           // Generate the Correlation-Context header.
-          UnsafeStringBuilder correlationContextBuilder = null;
-          var propertyNames = new HashSet<string>();
-          try
+          var correlationContext = GetCorrelationContext(http, activity.Context);
+          if (correlationContext != null)
           {
-            activity.Context.ForEachProperty((LoggingProperty property, object value, ref object _) =>
-            {
-              if (!property.IsBaggage || !propertyNames.Add(property.Name))
-              {
-                return;
-              }
-
-              if (correlationContextBuilder == null)
-              {
-                propertyNames = new HashSet<string>();
-                correlationContextBuilder = new UnsafeStringBuilder(1024);
-              }
-
-              if (correlationContextBuilder.Length > 0)
-              {
-                correlationContextBuilder.Append(", ");
-              }
-
-              correlationContextBuilder.Append(property.Name);
-              correlationContextBuilder.Append('=');
-
-              var formatter =
-                              property.Formatter ?? LoggingServices.Formatters.Get(value.GetType());
-
-              formatter.Write(correlationContextBuilder, value);
-            });
-
-            if (correlationContextBuilder != null)
-            {
-              http.DefaultRequestHeaders.Add("Correlation-Context", correlationContextBuilder.ToString());
-            }
-          }
-          finally
-          {
-            correlationContextBuilder?.Dispose();
+            http.DefaultRequestHeaders.Add("Correlation-Context", correlationContext);
           }
 
 
@@ -127,6 +93,49 @@ namespace ClientExample
           http.DefaultRequestHeaders.Remove("Request-Id");
         }
       }
+    }
+
+    private static string GetCorrelationContext(HttpClient http, ILoggingContext context)
+    {
+      UnsafeStringBuilder correlationContextBuilder = null;
+      var propertyNames = new HashSet<string>();
+      try
+      {
+        context.ForEachProperty((LoggingProperty property, object value, ref object _) =>
+        {
+          if (!property.IsBaggage || !propertyNames.Add(property.Name))
+          {
+            return;
+          }
+
+          if (correlationContextBuilder == null)
+          {
+            propertyNames = new HashSet<string>();
+            correlationContextBuilder = new UnsafeStringBuilder(1024);
+          }
+
+          if (correlationContextBuilder.Length > 0)
+          {
+            correlationContextBuilder.Append(", ");
+          }
+
+          correlationContextBuilder.Append(property.Name);
+          correlationContextBuilder.Append('=');
+
+          var formatter =
+                          property.Formatter ?? LoggingServices.Formatters.Get(value.GetType());
+
+          formatter.Write(correlationContextBuilder, value);
+        });
+
+        return correlationContextBuilder?.ToString();
+
+      }
+      finally
+      {
+        correlationContextBuilder?.Dispose();
+      }
+
     }
 
     private static string Trim(string s, string suffix)
