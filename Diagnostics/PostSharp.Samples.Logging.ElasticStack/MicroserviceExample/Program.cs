@@ -6,6 +6,8 @@ using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Backends.Serilog;
 using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using Serilog;
+using Serilog.Sinks.Elasticsearch;
+using System;
 
 [assembly: Log]
 
@@ -19,9 +21,16 @@ namespace MicroserviceExample
     {
 
       using (var logger = new LoggerConfiguration()
-          .Enrich.WithProperty("Application", "MicroserviceExample")
+          .Enrich.WithProperty("Application", "PostSharp.Samples.Diagnostics.ElasticStack.MicroserviceExample")
           .MinimumLevel.Debug()
-          .WriteTo.Async(a => a.DurableHttp(requestUri: "http://localhost:31311", batchPostingLimit: 5))
+          .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
+          {
+            BatchPostingLimit = 1, // For demo.
+            AutoRegisterTemplate = true,
+            AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv6,
+            EmitEventFailure = EmitEventFailureHandling.ThrowException | EmitEventFailureHandling.WriteToSelfLog,
+            FailureCallback = e => Console.WriteLine("Unable to submit event " + e.MessageTemplate),
+          })
           .WriteTo.Console(
               outputTemplate:
               "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] {Indent:l}{Message:l}{NewLine}{Exception}")

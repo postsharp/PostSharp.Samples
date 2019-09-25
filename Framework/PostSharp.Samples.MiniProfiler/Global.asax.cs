@@ -7,6 +7,8 @@ namespace PostSharp.Samples.MiniProfiler
 {
   public class MvcApplication : HttpApplication
   {
+    StackExchange.Profiling.MiniProfiler profiler;
+
     protected void Application_Start()
     {
       AreaRegistration.RegisterAllAreas();
@@ -17,12 +19,12 @@ namespace PostSharp.Samples.MiniProfiler
 
     protected void Application_BeginRequest()
     {
-      StackExchange.Profiling.MiniProfiler.Start();
+      this.profiler = StackExchange.Profiling.MiniProfiler.StartNew();
     }
 
     protected void Application_EndRequest()
     {
-      StackExchange.Profiling.MiniProfiler.Stop();
+      this.profiler.Stop();
     }
   }
 }

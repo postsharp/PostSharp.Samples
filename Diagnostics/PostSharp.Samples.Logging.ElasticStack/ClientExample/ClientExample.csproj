@@ -13,17 +13,17 @@
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <ItemGroup>
-    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
-    <PackageReference Include="Serilog.Sinks.Async" Version="1.3.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.Http" Version="5.0.0" />
-    <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.2.9" />
-    <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.2.9" />
+    <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.2.12" />
+    <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.2.12" />
+    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.0" />
   </ItemGroup>
   
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   
-  <Import Project="..\..\..\PostSharp.Samples.targets"/>
+  <Import Project="..\..\..\PostSharp.Samples.targets" />
   
 
  

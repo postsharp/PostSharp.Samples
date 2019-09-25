@@ -58,16 +58,16 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.2.9</Version>
+      <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.2.9</Version>
+      <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems" Label="Shared" />
-  <Import Project="..\..\PostSharp.Samples.targets"/>
+  <Import Project="..\..\PostSharp.Samples.targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,15 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.2.9</Version>
+      <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Common">
-      <Version>6.2.9</Version>
+      <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="..\..\PostSharp.Samples.targets"/>
+  <Import Project="..\..\PostSharp.Samples.targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
