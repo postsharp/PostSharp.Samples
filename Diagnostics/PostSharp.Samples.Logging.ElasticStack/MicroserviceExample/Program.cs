@@ -21,7 +21,7 @@ namespace MicroserviceExample
     {
 
       using (var logger = new LoggerConfiguration()
-          .Enrich.WithProperty("Application", "PostSharp.Samples.Diagnostics.ElasticStack.MicroserviceExample")
+          .Enrich.WithProperty("Application", "PostSharp.Samples.Logging.ElasticStack.MicroserviceExample")
           .MinimumLevel.Debug()
           .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
           {
@@ -51,8 +51,8 @@ namespace MicroserviceExample
         LoggingServices.Formatters.Register(new ObjectResultFormatter());
 
         // Log only warnings by default, except for 10% randomly chosen requests.
-        SampledLoggingActionFilter.Initialize(backend);
-        LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
+        //SampledLoggingActionFilter.Initialize(backend);
+        //LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
 
 
 

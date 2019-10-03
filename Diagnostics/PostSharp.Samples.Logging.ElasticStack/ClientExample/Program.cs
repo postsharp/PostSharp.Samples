@@ -18,7 +18,7 @@ namespace ClientExample
     private static async Task Main()
     {
       using (var logger = new LoggerConfiguration()
-          .Enrich.WithProperty("Application", "PostSharp.Samples.Diagnostics.ElasticStack.ClientExample")
+          .Enrich.WithProperty("Application", "PostSharp.Samples.Logging.ElasticStack.ClientExample")
           .MinimumLevel.Debug()
            .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
            {
@@ -42,13 +42,8 @@ namespace ClientExample
         LoggingServices.DefaultBackend = backend;
 
 
-        using (logSource.Debug.OpenActivity(Formatted("Running the client"), new OpenActivityOptions
-        {
-          Properties = new[]
-            {
-                        new LoggingProperty("User", "Gaius Julius Caesar") {IsBaggage = true}
-                    }
-        }))
+        using (logSource.Debug.OpenActivity(Formatted("Running the client"), 
+          new OpenActivityOptions {  Properties = new[] { new LoggingProperty("User", "Gaius Julius Caesar") {IsBaggage = true} } }))
         {
           await QueueProcessor.ProcessQueue(".\\My\\Queue");
         }

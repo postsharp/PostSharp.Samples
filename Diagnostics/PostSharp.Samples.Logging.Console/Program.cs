@@ -15,6 +15,7 @@ namespace PostSharp.Samples.Logging.Console
       // Configure PostSharp Logging to output logs to the console.
       LoggingServices.DefaultBackend = new ConsoleLoggingBackend();
 
+
       // Simulate some business logic.
       QueueProcessor.ProcessQueue(@".\Private$\SyncRequestQueue");
     }

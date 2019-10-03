@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PostSharp.Patterns.Diagnostics;
+using static PostSharp.Patterns.Diagnostics.SemanticMessageBuilder;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -9,6 +11,8 @@ namespace MicroserviceExample.Controllers
   [ApiController]
   public class ValuesController : ControllerBase
   {
+    static readonly LogSource logSource = LogSource.Get();
+
     private readonly ConcurrentDictionary<int, string> values = new ConcurrentDictionary<int, string>();
 
     public ValuesController()
@@ -48,6 +52,8 @@ namespace MicroserviceExample.Controllers
         throw new ArgumentOutOfRangeException(nameof(value));
       }
 
+      logSource.Debug.EnabledOrNull?.Write(Semantic("SetValue", ("Id", id), ("Value", value)));
+
       this.values[id] = value;
     }
 
@@ -59,6 +65,8 @@ namespace MicroserviceExample.Controllers
       {
         throw new ArgumentOutOfRangeException(nameof(value));
       }
+
+      logSource.Debug.EnabledOrNull?.Write(Semantic("AddValue", ("Id", id), ("Value", value)));
 
       if (!this.values.TryAdd(id, value))
       {

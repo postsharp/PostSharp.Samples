@@ -19,7 +19,7 @@ namespace ClientExample
 
     public static async Task ProcessQueue(string queuePath)
     {
-      await ProcessItem(new QueueItem(1, Verb.Create, "orange"));
+      await ProcessItem(new QueueItem(1, Verb.Create, "grapefruit"));
       await ProcessItem(new QueueItem(2, Verb.Create, "pear"));
       await ProcessItem(new QueueItem(3, Verb.Create, "grape"));
       await ProcessItem(new QueueItem(1, Verb.Get));
