@@ -66,13 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.4.3</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Caching">
-      <Version>6.4.3</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Caching.Redis">
-      <Version>6.4.3</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="redis-64">
       <Version>3.0.503</Version>

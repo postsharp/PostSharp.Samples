@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\PostSharp.6.4.3\build\PostSharp.props" Condition="Exists('..\..\packages\PostSharp.6.4.3\build\PostSharp.props')" />
+  <Import Project="..\..\packages\PostSharp.6.4.4\build\PostSharp.props" Condition="Exists('..\..\packages\PostSharp.6.4.4\build\PostSharp.props')" />
   <Import Project="..\..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -50,9 +50,8 @@
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PostSharp, Version=6.4.3.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7">
-      <HintPath>..\..\packages\PostSharp.Redist.6.4.3\lib\net45\PostSharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="PostSharp, Version=6.4.4.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PostSharp.Redist.6.4.4\lib\net45\PostSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime" />
     <Reference Include="System.Runtime.InteropServices" />
@@ -126,10 +125,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\..\packages\PostSharp.6.4.3\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.4.3\build\PostSharp.props'))" />
-    <Error Condition="!Exists('..\..\packages\PostSharp.6.4.3\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.4.3\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\..\packages\PostSharp.6.4.4\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.4.4\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\..\packages\PostSharp.6.4.4\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\PostSharp.6.4.4\build\PostSharp.targets'))" />
   </Target>
-  <Import Project="..\..\packages\PostSharp.6.4.3\build\PostSharp.targets" Condition="Exists('..\..\packages\PostSharp.6.4.3\build\PostSharp.targets')" />
+  <Import Project="..\..\packages\PostSharp.6.4.4\build\PostSharp.targets" Condition="Exists('..\..\packages\PostSharp.6.4.4\build\PostSharp.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
