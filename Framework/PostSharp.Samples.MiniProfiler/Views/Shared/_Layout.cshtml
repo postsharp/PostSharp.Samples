@@ -34,10 +34,9 @@
         </footer>
     </div>
 
-    @MiniProfiler.Current.RenderIncludes()
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", false)
+    @MiniProfiler.Current.RenderIncludes()
 </body>
 </html>

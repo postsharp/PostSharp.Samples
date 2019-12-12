@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using StackExchange.Profiling;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -15,6 +16,7 @@ namespace PostSharp.Samples.MiniProfiler
       FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
       RouteConfig.RegisterRoutes(RouteTable.Routes);
       BundleConfig.RegisterBundles(BundleTable.Bundles);
+      StackExchange.Profiling.MiniProfiler.Configure(new MiniProfilerOptions());
     }
 
     protected void Application_BeginRequest()
@@ -24,7 +26,7 @@ namespace PostSharp.Samples.MiniProfiler
 
     protected void Application_EndRequest()
     {
-      this.profiler.Stop();
+      this.profiler?.Stop();
     }
   }
 }

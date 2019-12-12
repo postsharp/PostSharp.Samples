@@ -33,7 +33,10 @@ namespace PostSharp.Samples.Caching
 
         Console.WriteLine("Starting Redis server with config file: " + configFile);
 
-        return new RedisServer(Process.Start(@"..\..\..\..\packages\redis-64.3.0.503\tools\redis-server.exe",
+        // Update this path if the redis-64 NuGet package is restored to another location.
+        return new RedisServer(Process.Start(
+          Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            ".nuget", "packages", "redis-64", "3.0.503", "tools", "redis-server.exe"),
           configFile));
       }
       return new RedisServer(null);
