@@ -27,7 +27,11 @@ namespace PostSharp.Samples.Caching
 
     public static RedisServer Start()
     {
-      if (!Process.GetProcessesByName("redis-server").Any())
+      if (Process.GetProcessesByName("redis-server").Any())
+      {
+        Console.WriteLine("Redis has already started.");
+      }
+      else
       {
         var configFile = Path.GetFullPath("redis.conf");
 

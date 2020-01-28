@@ -1,5 +1,7 @@
 ﻿using PostSharp.Patterns.Caching;
 using PostSharp.Patterns.Caching.Backends.Redis;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics.Backends.Console;
 using StackExchange.Redis;
 using System;
 using System.Linq;
@@ -11,11 +13,19 @@ namespace PostSharp.Samples.Caching
   {
     private static void Main(string[] args)
     {
+
+      AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+      LoggingServices.DefaultBackend = new ConsoleLoggingBackend();
+
+      // Uncomment the next line for detailed logging.
+      // LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Debug, LoggingRoles.Caching);
+
       using (RedisServer.Start())
       {
         using (var connection = ConnectionMultiplexer.Connect("localhost:6380,abortConnect = False"))
         {
 
+          connection.InternalError += (sender, eventArgs) => Console.Error.WriteLine(eventArgs.Exception);
           connection.ErrorMessage += (sender, eventArgs) => Console.Error.WriteLine(eventArgs.Message);
           connection.ConnectionFailed += (sender, eventArgs) => Console.Error.WriteLine(eventArgs.Exception);
 
@@ -62,6 +72,11 @@ namespace PostSharp.Samples.Caching
           }
         }
       }
+    }
+
+    private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+    {
+     
     }
   }
 }
