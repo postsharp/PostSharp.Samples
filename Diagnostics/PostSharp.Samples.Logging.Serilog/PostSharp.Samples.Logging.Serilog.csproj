@@ -53,13 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.4.4</Version>
+      <Version>6.4.6</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.4.4</Version>
+      <Version>6.4.6</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog">
-      <Version>6.4.4</Version>
+      <Version>6.4.6</Version>
     </PackageReference>
     <PackageReference Include="Serilog">
       <Version>2.9.0</Version>
