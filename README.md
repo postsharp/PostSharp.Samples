@@ -47,9 +47,9 @@ or you can download them on [GitHub](https://www.github.com/postsharp/PostSharp.
 | **Threading**                 
 | [PostSharp.Samples.Threading.PingPong](Threading/PostSharp.Samples.Threading.PingPong/)             | The classic educational ping-pong example.                                                   | 
 | [PostSharp.Samples.Threading.ThreadDispatching](Threading/PostSharp.Samples.Threading.ThreadDispatching/) | A simple WPF progress bar updated from a background thread.                            | 
-
-
-
-
-
- 
+**DependencyResolution**                 
+| [PostSharp.Samples.DependencyResolution.GlobalServiceContainer](DependencyResolution/PostSharp.Samples.DependencyResolution.GlobalServiceContainer/)             | Initialize the aspect from an ambient container at run time.                                                   | 
+| [PostSharp.Samples.DependencyResolution.GlobalServiceLocator](DependencyResolution/PostSharp.Samples.DependencyResolution.GlobalServiceLocator/) | Using a global MEF service locator.                            | 
+| [PostSharp.Samples.DependencyResolution.Dynamic](DependencyResolution/PostSharp.Samples.DependencyResolution.Dynamic/)             | Resolve dependencies dynamically each time they are needed, and not only at aspect initialization.                                                   | 
+| [PostSharp.Samples.DependencyResolution.Contextual](DependencyResolution/PostSharp.Samples.DependencyResolution.Contextual/) | Resolve dependencies to specific implementations for a given context.
+ [PostSharp.Samples.DependencyResolution.InstanceScoped](DependencyResolution/PostSharp.Samples.DependencyResolution.InstanceScoped/)             | Consume dependencies from the objects to which they are applied and also add dependencies to the target objects.              | 
