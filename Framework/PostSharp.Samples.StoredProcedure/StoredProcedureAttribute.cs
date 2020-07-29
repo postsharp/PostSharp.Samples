@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace PostSharp.Samples.StoredProcedure
 {
   [PSerializable]
+  [MulticastAttributeUsage( MulticastTargets.Method, TargetMemberAttributes =MulticastAttributes.Instance)]
   internal class StoredProcedureAttribute : MethodInterceptionAspect
   {
     MethodInfo mapDataReaderMethod;
@@ -27,11 +28,18 @@ namespace PostSharp.Samples.StoredProcedure
     {
       if (method.MethodImplementationFlags != MethodImplAttributes.InternalCall)
       {
-        // We transform only extern methods.
+        // We silently ignore any non-extern method.
         return false;
       }
 
       var methodInfo =  (MethodInfo) method;
+
+      // Validate the base type.
+      if (!typeof(BaseDbApi).IsAssignableFrom(methodInfo.DeclaringType))
+        {
+        Message.Write(method, SeverityType.Error, "SP003", "Cannot apply the [StoredProcedure] aspect to {0} because the method is not declared in a type derived from BaseDbApi.", method);
+        return false;
+      }
 
    
       // Validate the parameter types.

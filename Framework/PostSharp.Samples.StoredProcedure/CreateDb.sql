@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS Speakers
+GO
+
 CREATE TABLE Speakers
 (
 Id int NOT NULL PRIMARY KEY,
@@ -19,6 +22,8 @@ INSERT INTO Speakers ( Id, Name, IsActive ) VALUES ( 4, 'Alexander Arvidsson', 0
 GO
 
 
+DROP PROCEDURE IF EXISTS SetSpeakerStatus
+GO
 
 CREATE PROCEDURE SetSpeakerStatus
 	@Id int,
@@ -29,8 +34,22 @@ AS
 
 GO
 
+DROP PROCEDURE IF EXISTS GetActiveSpeakers
+GO
+
+
 CREATE PROCEDURE GetActiveSpeakers
 AS
 	SELECT * FROM Speakers WHERE IsActive = 1;
+
+GO
+
+DROP PROCEDURE IF EXISTS GetSpeakers
+GO
+
+
+CREATE PROCEDURE GetSpeakers
+AS
+	SELECT * FROM Speakers;
 
 GO

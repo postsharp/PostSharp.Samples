@@ -16,18 +16,17 @@ namespace PostSharp.Samples.StoredProcedure
 
         SpeakerApi api = new SpeakerApi(connection);
 
-        api.SetSpeakerStatus(1, true);
-        api.SetSpeakerStatus(2, true);
 
-        // Try the async API.
-        foreach (var speaker in api.GetActiveSpeakers())
+        Console.WriteLine("All speakers:");
+        foreach (var speaker in api.GetSpeakers())
         {
           Console.WriteLine(speaker);
         }
 
-        await api.SetSpeakerStatusAsync(1, true);
-        await api.SetSpeakerStatusAsync(2, false);
+        Console.WriteLine("Disable speaker 1...");
+        await api.SetSpeakerStatusAsync(1, false);
 
+        Console.WriteLine("Active speakers:");
         foreach (var speaker in api.GetActiveSpeakers())
         {
           Console.WriteLine(speaker);
