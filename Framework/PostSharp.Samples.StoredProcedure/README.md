@@ -20,6 +20,6 @@ such as providing a dummy implementation for the method.
 
 To test this sample, you must create a SQL database, load `CreateDb.sql`, and change the connection string in `Program.Main`.
 
-This code is given for inspiration. A production-ready implementation should add error handling, test mappings,
+This code is given for inspiration. A production-ready implementation should add error handling, test mapping of parameter types,
 implement out parameters, and so on.
 
