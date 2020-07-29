@@ -15,7 +15,8 @@ The `StoredProcedureAttribute` class is the implementation of the aspect itself.
 with inheritance and multicast enabled, so any `extern` method in a derived class will be turned into a stored 
 procedure call.
 
-The `MethodImpl` thing is ugly but unfortunately required. 
+The `MethodImpl` thing is ugly but unfortunately required if we want to use `extern` methods. Other designs are possible,
+such as providing a dummy implementation for the method.
 
 To test this sample, you must create a SQL database, load `CreateDb.sql`, and change the connection string in `Program.Main`.
 
