@@ -24,6 +24,7 @@ or you can download them on [GitHub](https://www.github.com/postsharp/PostSharp.
 | [PostSharp.Samples.AutoDataContract](Framework/PostSharp.Samples.AutoDataContract/)                 | Automatically adds `[DataContract]` and `[DataMember]` attributes to derived classes and all properties | 
 | [PostSharp.Samples.Authorization](Framework/PostSharp.Samples.Authorization/)                       | Requires permissions before getting or setting fields or executing methods.                  | 
 | [PostSharp.Samples.NormalizeString](Framework/PostSharp.Samples.NormalizeString/)                   | Trims and lowercases strings before they are assigned to a field or property.
+| [PostSharp.Samples.StoredProcedure](Framework/PostSharp.Samples.StoredProcedure/)                   | Implements something like P-Invoke, but for database stored procedures.  |
 | **Diagnostics**                 
 | [PostSharp.Samples.Logging.Customization](Diagnostics/PostSharp.Samples.Logging.Customization/)     | Shows how to customize PostSharp Logging.                                                   | 
 | [PostSharp.Samples.Logging.Console](Diagnostics/PostSharp.Samples.Logging.Console/)                 | Demonstrates how to configure PostSharp Logging so that it directs its output to the *system console*.  | 

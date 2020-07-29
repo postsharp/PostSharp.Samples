@@ -95,6 +95,8 @@ namespace PostSharp.Samples.StoredProcedure
         args.ReturnValue = this.mapDataReaderMethod.MakeGenericMethod(returnType.GetGenericArguments()[0]).Invoke(null, new object[] { reader, instance.Mapper });
       }
 
+      // TODO: Map out parameters back to method arguments.
+
     }
 
     public override async Task OnInvokeAsync(MethodInterceptionArgs args)
@@ -126,6 +128,8 @@ namespace PostSharp.Samples.StoredProcedure
         }
 
       }
+
+      // TODO: Map out parameters back to method arguments.
 
     }
 
