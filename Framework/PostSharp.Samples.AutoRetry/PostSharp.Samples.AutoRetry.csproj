@@ -72,7 +72,7 @@
       <Version>2.0.3</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
-      <Version>6.4.6</Version>
+      <Version>6.6.13</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\..\PostSharp.Samples.targets" />

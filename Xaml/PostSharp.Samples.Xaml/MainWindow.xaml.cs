@@ -74,14 +74,14 @@ namespace PostSharp.Samples.Xaml
 
       if (openFileDialog.ShowDialog().GetValueOrDefault())
       {
-        Save(openFileDialog.FileName);
+        SaveInBackground(openFileDialog.FileName);
       }
     }
 
 
     [Background]
     [DisableUI]
-    private void Save(string path)
+    private void SaveInBackground(string path)
     {
       customer.Save(path);
     }
