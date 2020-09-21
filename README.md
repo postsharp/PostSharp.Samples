@@ -48,9 +48,5 @@ or you can download them on [GitHub](https://www.github.com/postsharp/PostSharp.
 | **Threading**                 
 | [PostSharp.Samples.Threading.PingPong](Threading/PostSharp.Samples.Threading.PingPong/)             | The classic educational ping-pong example.                                                   | 
 | [PostSharp.Samples.Threading.ThreadDispatching](Threading/PostSharp.Samples.Threading.ThreadDispatching/) | A simple WPF progress bar updated from a background thread.                            | 
-
-
-
-
-
- 
+| **Platform Support**                 
+| [PostSharp.Samples.Blazor.AutoRetry](Blazor/PostSharp.Samples.Blazor.AutoRetry/) | Demonstrates a custom aspect used in a Blazor application. |
