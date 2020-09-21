@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<linker>
+  <assembly fullname="netstandard">
+    <type fullname="*">
+    </type>
+  </assembly>
+</linker>
