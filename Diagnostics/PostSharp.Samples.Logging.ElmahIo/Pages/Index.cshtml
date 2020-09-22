@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">What am I made of?</h1>
+    <p>
+        <form method="post">
+            How much do you weigh, in kilograms:&nbsp;
+            <input asp-for="NumberOfKgs" />
+            <input type="submit" value="Tell me about my body" />
+            <br></br>
+            <p style="white-space: pre-line">@ViewData.Model.Result</p>
+        </form>
+    </p>
+</div>
