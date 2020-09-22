@@ -98,7 +98,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientExample", "Diagnostic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceExample", "Diagnostics\PostSharp.Samples.Logging.ElasticStack\MicroserviceExample\MicroserviceExample.csproj", "{B4216E1F-7FBC-4D5F-AE1A-38E67EC88852}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.StoredProcedure", "Framework\PostSharp.Samples.StoredProcedure\PostSharp.Samples.StoredProcedure.csproj", "{3142BE72-115D-4733-8ED1-FE80196AF4FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.StoredProcedure", "Framework\PostSharp.Samples.StoredProcedure\PostSharp.Samples.StoredProcedure.csproj", "{3142BE72-115D-4733-8ED1-FE80196AF4FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{032EF210-0835-467E-86D2-8CBF4E0B56FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.Blazor.AutoRetry", "Blazor\PostSharp.Samples.Blazor.AutoRetry\PostSharp.Samples.Blazor.AutoRetry.csproj", "{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -330,6 +334,12 @@ Global
 		{3142BE72-115D-4733-8ED1-FE80196AF4FE}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{3142BE72-115D-4733-8ED1-FE80196AF4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3142BE72-115D-4733-8ED1-FE80196AF4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -372,6 +382,7 @@ Global
 		{D13928C0-62FE-4B93-86BC-E45B147C7C08} = {6B66C0C7-17E9-4888-826E-0168EBDFC2A7}
 		{B4216E1F-7FBC-4D5F-AE1A-38E67EC88852} = {6B66C0C7-17E9-4888-826E-0168EBDFC2A7}
 		{3142BE72-115D-4733-8ED1-FE80196AF4FE} = {D83514BD-6473-4A66-AD23-D996968DE17C}
+		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F} = {032EF210-0835-467E-86D2-8CBF4E0B56FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E95A232-DBEE-4E84-9574-757745FEE89B}
