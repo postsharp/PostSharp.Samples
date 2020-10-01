@@ -30,8 +30,8 @@ namespace PostSharp.Samples.Logging.ElmahIo
           .WriteTo.ColoredConsole(outputTemplate: formatString) // Pretty formatting and indentation for console/file
           .WriteTo.File("log.log", outputTemplate: formatString)
           .WriteTo.ElmahIo(new ElmahIoSinkOptions(
-            "0b50912ab59d41a599bba7f8dfc7b89e", // Use key and ID from your elmah.io account
-            new Guid("aaffe1c7-56c9-4b57-8f31-0eacc6c39481")
+            "YOUR_API_KEY", // Use key and ID from your elmah.io account
+            new Guid("YOUR_LOG_ID")
             )
           {
               MinimumLogEventLevel = LogEventLevel.Warning // only send warnings and errors to elmah.io
