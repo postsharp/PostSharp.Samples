@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1267
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.CustomLogging", "Framework\PostSharp.Samples.CustomLogging\PostSharp.Samples.CustomLogging.csproj", "{C943DF92-512E-4488-83C0-96DD10CA9854}"
 EndProject
@@ -77,8 +77,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Authoriza
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Logging.CustomBackend.ServiceStack", "Diagnostics\PostSharp.Samples.Logging.CustomBackend.ServiceStack\PostSharp.Samples.Logging.CustomBackend.ServiceStack.csproj", "{CC3F424B-E1BE-4555-A77E-52FA4B14BDA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Logging.Audit", "Diagnostics\PostSharp.Samples.Audit\PostSharp.Samples.Logging.Audit.csproj", "{55027D93-3DA2-4659-A334-CCCCB98E8AEB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Logging.Loupe", "Diagnostics\PostSharp.Samples.Logging.Loupe\PostSharp.Samples.Logging.Loupe.csproj", "{90A7F2AD-E82B-4285-9D3D-070E95D2F0BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Logging.CommonLogging", "Diagnostics\PostSharp.Samples.Logging.CommonLogging\PostSharp.Samples.Logging.CommonLogging.csproj", "{CD5F3675-C0BC-4FE4-8FAE-0CF0A66FD644}"
@@ -103,6 +101,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.Blazor.AutoRetry", "Blazor\PostSharp.Samples.Blazor.AutoRetry\PostSharp.Samples.Blazor.AutoRetry.csproj", "{049BD683-4248-42B9-AF40-7D5D7E6DBD5F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.Logging.ElmahIo", "Diagnostics\PostSharp.Samples.Logging.ElmahIo\PostSharp.Samples.Logging.ElmahIo.csproj", "{52CF5026-A0A9-47AC-93C6-DD4A522A89A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Logging.Audit", "Diagnostics\PostSharp.Samples.Logging.Audit\PostSharp.Samples.Logging.Audit.csproj", "{55027D93-3DA2-4659-A334-CCCCB98E8AEB}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -280,12 +280,6 @@ Global
 		{CC3F424B-E1BE-4555-A77E-52FA4B14BDA0}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{CC3F424B-E1BE-4555-A77E-52FA4B14BDA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3F424B-E1BE-4555-A77E-52FA4B14BDA0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Development|Any CPU.ActiveCfg = Debug|Any CPU
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Development|Any CPU.Build.0 = Debug|Any CPU
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90A7F2AD-E82B-4285-9D3D-070E95D2F0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90A7F2AD-E82B-4285-9D3D-070E95D2F0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A7F2AD-E82B-4285-9D3D-070E95D2F0BA}.Development|Any CPU.ActiveCfg = Debug|Any CPU
@@ -340,6 +334,12 @@ Global
 		{52CF5026-A0A9-47AC-93C6-DD4A522A89A1}.Development|Any CPU.Build.0 = Debug|Any CPU
 		{52CF5026-A0A9-47AC-93C6-DD4A522A89A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52CF5026-A0A9-47AC-93C6-DD4A522A89A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -372,7 +372,6 @@ Global
 		{FB71F9B1-4A53-4397-A26C-23294423DA4D} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
 		{6C94BDFF-B0F8-42DE-898B-93375A165ACC} = {D83514BD-6473-4A66-AD23-D996968DE17C}
 		{CC3F424B-E1BE-4555-A77E-52FA4B14BDA0} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
-		{55027D93-3DA2-4659-A334-CCCCB98E8AEB} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
 		{90A7F2AD-E82B-4285-9D3D-070E95D2F0BA} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
 		{CD5F3675-C0BC-4FE4-8FAE-0CF0A66FD644} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
 		{637CB8F6-4F80-4D14-B1A6-2095A2A743C9} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
@@ -383,6 +382,7 @@ Global
 		{3142BE72-115D-4733-8ED1-FE80196AF4FE} = {D83514BD-6473-4A66-AD23-D996968DE17C}
 		{049BD683-4248-42B9-AF40-7D5D7E6DBD5F} = {032EF210-0835-467E-86D2-8CBF4E0B56FC}
 		{52CF5026-A0A9-47AC-93C6-DD4A522A89A1} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
+		{55027D93-3DA2-4659-A334-CCCCB98E8AEB} = {B1F3FAC0-64CB-4CFC-994C-DF56801FC743}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E95A232-DBEE-4E84-9574-757745FEE89B}
