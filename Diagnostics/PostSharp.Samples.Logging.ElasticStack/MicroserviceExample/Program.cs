@@ -20,8 +20,8 @@ namespace MicroserviceExample
 
     public static void Main(string[] args)
     {
-      AspNetCoreLogging.Initialize();
 
+      // Configure Serilog to write to the console and to Elastic Search.
       using (var logger = new LoggerConfiguration()
           .Enrich.WithProperty("Application", "Microservice")
           .MinimumLevel.Debug()
@@ -39,7 +39,7 @@ namespace MicroserviceExample
           .CreateLogger())
       {
 
-
+        // Configure PostSharp Logging to write to Serilog.
         var backend = new SerilogLoggingBackend(logger);
         backend.Options.IncludeActivityExecutionTime = true;
         backend.Options.IncludeExceptionDetails = true;
@@ -51,6 +51,10 @@ namespace MicroserviceExample
         LoggingServices.Formatters.Register(typeof(ActionResult<>), typeof(ActionResultFormatter<>));
         LoggingServices.Formatters.Register(new ActionResultFormatter());
         LoggingServices.Formatters.Register(new ObjectResultFormatter());
+
+
+        // Instrument ASP.NET Core.
+        AspNetCoreLogging.Initialize();
 
 
         // Execute the web app.

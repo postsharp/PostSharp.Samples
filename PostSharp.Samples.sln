@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aspect Framework", "Aspect 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XAML", "XAML", "{0EB69154-BD96-40EF-8404-398B2F956C79}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagnostics", "Diagnostics", "{B1F3FAC0-64CB-4CFC-994C-DF56801FC743}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{B1F3FAC0-64CB-4CFC-994C-DF56801FC743}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Threading", "Threading", "{44399EE3-2C8A-4ECE-BC3D-F4D2CA50290F}"
 EndProject
@@ -85,14 +85,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.Logging.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostSharp.Samples.NormalizeString", "Framework\PostSharp.Samples.NormalizeString\PostSharp.Samples.NormalizeString.csproj", "{EB412369-CE3D-4D0F-9E16-A93D501DAA1A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElasticStack", "ElasticStack", "{6B66C0C7-17E9-4888-826E-0168EBDFC2A7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distributed", "Distributed", "{6B66C0C7-17E9-4888-826E-0168EBDFC2A7}"
 	ProjectSection(SolutionItems) = preProject
 		Diagnostics\PostSharp.Samples.Logging.ElasticStack\README.md = Diagnostics\PostSharp.Samples.Logging.ElasticStack\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientExample", "Diagnostics\PostSharp.Samples.Logging.ElasticStack\ClientExample\ClientExample.csproj", "{D13928C0-62FE-4B93-86BC-E45B147C7C08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.Logging.Distributed.Client", "Diagnostics\PostSharp.Samples.Logging.ElasticStack\ClientExample\PostSharp.Samples.Logging.Distributed.Client.csproj", "{D13928C0-62FE-4B93-86BC-E45B147C7C08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceExample", "Diagnostics\PostSharp.Samples.Logging.ElasticStack\MicroserviceExample\MicroserviceExample.csproj", "{B4216E1F-7FBC-4D5F-AE1A-38E67EC88852}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.Logging.Distributed.Service", "Diagnostics\PostSharp.Samples.Logging.ElasticStack\MicroserviceExample\PostSharp.Samples.Logging.Distributed.Service.csproj", "{B4216E1F-7FBC-4D5F-AE1A-38E67EC88852}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.StoredProcedure", "Framework\PostSharp.Samples.StoredProcedure\PostSharp.Samples.StoredProcedure.csproj", "{3142BE72-115D-4733-8ED1-FE80196AF4FE}"
 EndProject

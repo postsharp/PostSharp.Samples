@@ -1,4 +1,4 @@
-# Serilog and the Elastic Stack
+# PostSharp Logging, Serilog and the Elastic Stack
 
 ## Table of contents
 
@@ -13,33 +13,52 @@
 
 ## Credits
 
-This example is forked from https://github.com/FantasticFiasco/serilog-sinks-http-sample-elastic-stack. All credits for integrating Elastic Stack with Serilog go to the original authors.
+This example is forked from https://github.com/FantasticFiasco/serilog-sinks-http-sample-elastic-stack. 
+All credits for integrating Elastic Stack with Serilog go to the original authors.
 
-The `elastic-stack` directory is a clone of [docker-elk](https://github.com/deviantony/docker-elk) with minor modifications done by FantasticFiasco. Credit to [deviantony](https://github.com/deviantony) for publishing the Elastic Stack boilerplate.
+The `elastic-stack` directory is a clone of [docker-elk](https://github.com/deviantony/docker-elk) with minor modifications done by FantasticFiasco. 
+Credit to [deviantony](https://github.com/deviantony) for publishing the Elastic Stack boilerplate.
 
 ## Introduction
 
-[Elastic Stack](https://www.elastic.co/products) is fantastic at collecting and visualizing log events. [Serilog](https://serilog.net/) is fantastic at producing structured log events.  [PostSharp Diagnostics](https://www.postsharp.net/diagnostics) 
-is fantastic at instrumenting your project and feeding Serilog with plently structured log events.
+This example shows how to combine PostSharp Logging, Serilog and the Elastic Stack to achieve logging of a distributed application:
 
-This repository provides a sandbox where developers can explore the life of a log event starting with its birth in PostSharp and Serilog, its transport over the network to Logstash, its fields being indexed by Elasticsearch and finally its legacy being recorded as a historical event in Kibana.
+* [Elastic Stack](https://www.elastic.co/products) is fantastic at collecting and visualizing log events. 
+* [Serilog](https://serilog.net/) is fantastic at producing structured log events.  
+* [PostSharp Logging](https://www.postsharp.net/logging) is fantastic at instrumenting your project and feeding Serilog with plently structured log events.
+
+This repository provides a sandbox where developers can explore the life of a log event starting with its birth in PostSharp and Serilog, 
+its transport over the network to Logstash, its fields being indexed by Elasticsearch and finally its legacy being recorded as a historical event in Kibana.
 
 This example contains two applications that run together, so we can explore the correlation of requests coming from both apps.
 
+PostSharp Logging and Serilog are initialized in both applications in `Program.Main`.
+
 Correlation is implemented by two artifacts:
 
-* On client-side,  `InstrumentOutgoingRequestsAspect`, a PostSharp aspect, adds a header to `HttpClient`.
+* On client-side, a call to `HttpClientLogging.Initialize()`, which intercepts calls to `HttpClient` (outgoing HTTP requests) and adds correlation headers.
 
-* On server-side, `LoggingActionFilter`, an ASP.NET Action Filter, reads the header and adds it as a logging property.
+* On server-side, a call to `AspNetCoreLogging.Initialize()`, which intercepts incoming HTTP requests and interprets the correlation headers.
+
+If you have an application that acts both as an HTTP client and server, you would need both calls.
 
 
 ## What you will end up with
 
 ![alt text](./doc/resources/kibana.png "Kibana rendering log events")
 
-TODO: Update screenshot.
+* Automatic logging without boilerplate: your code is completely instrumented and you don't by a just a couple of custom attributes.
 
-With a running Elastic Stack and Serilog producing log events you are now ready to take it to the next level. If you fancy the producing part you'll dig deeper into Serilog and its configuration of log contexts, enrichers and message formatters. If you enjoy monitoring applications in production you'll explore Kibana with its visualizations and dashboards.
+* EventId: a synthetic id, cross-process identifier that makes easy to get all traces of a single distributed transaction just by using
+the `StartsWith` operator. For instance, in Kibana, try a filter like `fields.EventId: '4b6e6bfaaa.a2.a3.b33.a7*'`.
+
+* User: a baggage property, defined in the client and transported to the server. Try to display `fields.#User`.
+
+
+You are now ready to take it to the next level. 
+
+If you fancy the producing part you'll dig deeper into PostSharp Logging options, custom logging features, and message formatters. 
+If you enjoy monitoring applications in production you'll explore Kibana with its visualizations and dashboards.
 
 ## Requirements
 
@@ -57,7 +76,8 @@ PS> cd .\elastic-stack\
 PS> docker-compose up
 ```
 
-If this is the first time the stack is started, you'll have to create a Logstash index pattern. Give the stack some time to initialize and then run the following commands in PowerShell:
+If this is the first time the stack is started, you'll have to create a Logstash index pattern. 
+Give the stack some time to initialize, then create the index manually in the UI, or run the following commands in PowerShell:
 
 ```posh
 PS> $Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
@@ -69,7 +89,7 @@ PS> Invoke-RestMethod "http://localhost:5601/api/saved_objects/index-pattern" `
       -Body '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}'
 ```
 
-### Publishing log events using PostSharp and Serilog
+### Publishing log events using PostSharp Logging
 
 This runs the web service:
 

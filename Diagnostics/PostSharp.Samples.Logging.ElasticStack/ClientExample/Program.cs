@@ -19,8 +19,9 @@ namespace ClientExample
 
     private static async Task Main()
     {
-      HttpClientLogging.Initialize( uri => uri.Port != 9200 );
+      
 
+      // Configure Serilog to write to the console and to Elastic Search.
       using (var logger = new LoggerConfiguration()
           .Enrich.WithProperty("Application", "Client")
           .MinimumLevel.Debug()
@@ -37,6 +38,8 @@ namespace ClientExample
               "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] {Indent:l}{Message:l}{NewLine}{Exception}")
           .CreateLogger())
       {
+
+        // Configure PostSharp Logging to write to Serilog.
         var backend = new SerilogLoggingBackend(logger);
         backend.Options.IncludeActivityExecutionTime = true;
         backend.Options.IncludeExceptionDetails = true;
@@ -44,6 +47,9 @@ namespace ClientExample
         backend.Options.IncludedSpecialProperties = SerilogSpecialProperties.All;
         backend.Options.ContextIdGenerationStrategy = ContextIdGenerationStrategy.Hierarchical;
         LoggingServices.DefaultBackend = backend;
+
+        // Intercept outgoing HTTP requests and add logging to them.
+        HttpClientLogging.Initialize(uri => uri.Port != 9200);
 
 
         using (logSource.Debug.OpenActivity(Formatted("Running the client"),
