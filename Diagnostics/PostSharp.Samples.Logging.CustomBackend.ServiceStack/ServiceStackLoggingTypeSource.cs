@@ -6,7 +6,8 @@ namespace PostSharp.Samples.Logging.CustomBackend.ServiceStack
 {
   public class ServiceStackLoggingTypeSource : LoggingTypeSource
   {
-    public ServiceStackLoggingTypeSource(LoggingNamespaceSource parent, Type sourceType) : base(parent, sourceType)
+    public ServiceStackLoggingTypeSource(LoggingNamespaceSource parent, string name, Type sourceType)
+      : base(parent, name, sourceType )
     {
       Log = LogManager.GetLogger(sourceType);
     }

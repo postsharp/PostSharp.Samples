@@ -66,16 +66,16 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.8.3-preview-a1ba11</Version>
+      <Version>6.8.3-preview-4cc271</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Caching">
-      <Version>6.8.3-preview-a1ba11</Version>
+      <Version>6.8.3-preview-4cc271</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Caching.Redis">
-      <Version>6.8.3-preview-a1ba11</Version>
+      <Version>6.8.3-preview-4cc271</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.3-preview-a1ba11</Version>
+      <Version>6.8.3-preview-4cc271</Version>
     </PackageReference>
     <PackageReference Include="redis-64">
       <Version>3.0.503</Version>

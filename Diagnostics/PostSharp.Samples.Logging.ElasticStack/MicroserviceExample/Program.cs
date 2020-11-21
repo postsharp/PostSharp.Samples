@@ -3,6 +3,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics.Adapters.AspNetCore;
 using PostSharp.Patterns.Diagnostics.Backends.Serilog;
 using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using Serilog;
@@ -19,9 +20,10 @@ namespace MicroserviceExample
 
     public static void Main(string[] args)
     {
+      AspNetCoreLogging.Initialize();
 
       using (var logger = new LoggerConfiguration()
-          .Enrich.WithProperty("Application", "PostSharp.Samples.Logging.ElasticStack.MicroserviceExample")
+          .Enrich.WithProperty("Application", "Microservice")
           .MinimumLevel.Debug()
           .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
           {
@@ -49,12 +51,6 @@ namespace MicroserviceExample
         LoggingServices.Formatters.Register(typeof(ActionResult<>), typeof(ActionResultFormatter<>));
         LoggingServices.Formatters.Register(new ActionResultFormatter());
         LoggingServices.Formatters.Register(new ObjectResultFormatter());
-
-        // Log only warnings by default, except for 10% randomly chosen requests.
-        //SampledLoggingActionFilter.Initialize(backend);
-        //LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
-
-
 
 
         // Execute the web app.

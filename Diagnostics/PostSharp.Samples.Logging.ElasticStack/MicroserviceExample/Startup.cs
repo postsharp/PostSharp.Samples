@@ -18,29 +18,15 @@ namespace MicroserviceExample
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-
-      services.AddMvc(delegate (MvcOptions options)
-      {
-        options.Filters.Add(typeof(LoggingActionFilter));
-        if (SampledLoggingActionFilter.IsInitialized)
-        {
-          options.Filters.Add(typeof(SampledLoggingActionFilter));
-        }
-      }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+      services.AddMvc();
       services.AddHttpContextAccessor();
-
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (env.IsDevelopment())
-      {
         app.UseDeveloperExceptionPage();
-      }
-
-      app.UseMvc();
+       
     }
   }
 

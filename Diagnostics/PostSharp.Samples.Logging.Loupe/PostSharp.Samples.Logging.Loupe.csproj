@@ -60,10 +60,10 @@
       <Version>4.8.33</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
-      <Version>6.8.3-preview-a1ba11</Version>
+      <Version>6.8.3-preview-4cc271</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.3-preview-a1ba11</Version>
+      <Version>6.8.3-preview-4cc271</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics.Loupe">
       <Version>6.6.13</Version>
