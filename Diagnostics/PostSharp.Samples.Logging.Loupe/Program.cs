@@ -9,7 +9,6 @@ using System;
 
 namespace PostSharp.Samples.Logging.Loupe
 {
-  [Log(AttributeExclude = true)]   // Removes logging from the Program class itself.
   internal class Program
   {
     private static void Main(string[] args)

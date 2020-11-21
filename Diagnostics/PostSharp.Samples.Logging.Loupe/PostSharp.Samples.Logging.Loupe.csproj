@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoupeLoggingBackend.cs" />
+    <Compile Include="LoupeLoggingBackendOptions.cs" />
+    <Compile Include="LoupeLoggingTypeSource.cs" />
+    <Compile Include="LoupeLogRecordBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,9 +68,6 @@
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
       <Version>6.8.3-preview-4cc271</Version>
-    </PackageReference>
-    <PackageReference Include="PostSharp.Patterns.Diagnostics.Loupe">
-      <Version>6.6.13</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
