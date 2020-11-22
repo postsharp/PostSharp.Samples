@@ -26,8 +26,9 @@ or you can download them on [GitHub](https://www.github.com/postsharp/PostSharp.
 | [PostSharp.Samples.NormalizeString](Framework/PostSharp.Samples.NormalizeString/)                   | Trims and lowercases strings before they are assigned to a field or property.
 | [PostSharp.Samples.StoredProcedure](Framework/PostSharp.Samples.StoredProcedure/)                   | Implements something like P-Invoke, but for database stored procedures.  |
 | **Diagnostics**                 
-| [PostSharp.Samples.Logging.Customization](Diagnostics/PostSharp.Samples.Logging.Customization/)     | Shows how to customize PostSharp Logging.                                                   | 
 | [PostSharp.Samples.Logging.Console](Diagnostics/PostSharp.Samples.Logging.Console/)                 | Demonstrates how to configure PostSharp Logging so that it directs its output to the *system console*.  | 
+| [PostSharp.Samples.Logging.PerRequest](Diagnostics/PostSharp.Samples.Logging.PerRequest/)           | Shows how to have different verbosity for each request, 
+| [PostSharp.Samples.Logging.Customization](Diagnostics/PostSharp.Samples.Logging.Customization/)     | Shows how to customize PostSharp Logging.                                                   | 
 | [PostSharp.Samples.Logging.Etw](Diagnostics/PostSharp.Samples.Logging.Etw/)                 | Demonstrates how to configure PostSharp Logging so that it directs its output to *ETW*.               | 
 | [PostSharp.Samples.Logging.Etw.CustomSource](Diagnostics/PostSharp.Samples.Logging.Etw.CustomSource/)                 | Demonstrates how use PostSharp Logging with a custom *ETW* source (instead of the predefined one).               | 
 | [PostSharp.Samples.Logging.Log4Net](Diagnostics/PostSharp.Samples.Logging.Log4Net/)                 | Demonstrates how to configure PostSharp Logging so that it directs its output to *log4net*.   | 
@@ -37,7 +38,6 @@ or you can download them on [GitHub](https://www.github.com/postsharp/PostSharp.
 | [PostSharp.Samples.Logging.CommonLogging](Diagnostics/PostSharp.Samples.Logging.CommonLogging/)                 | Demonstrates how to configure PostSharp Logging so that it directs its output to *Common.Logging*.   | 
 | [PostSharp.Samples.Logging.CustomBackend.ServiceStack](Diagnostics/PostSharp.Samples.Logging.CustomBackend.ServiceStack/)  | Demonstrates how to implement a PostSharp Logging adapter for your custom logging framework.   | 
 | [PostSharp.Samples.Logging.Audit](Diagnostics/PostSharp.Samples.Audit/)  | Shows how to append an audit record to a database when a method is invoked.   |
-| [PostSharp.Samples.Logging.Audit.Extended](Diagnostics/PostSharp.Samples.Audit.Extended/)  | Shows how to add custom pieces of information to the audit record.   | 
 | **Distributed Diagnostics with Elastic Search**                 
 | [PostSharp.Samples.Logging.ElasticStack/MicroserviceExample](Diagnostics/PostSharp.Samples.Logging.ElasticStack/MicroserviceExample/)                 |  The server-side service demonstrating correlation of logs of a distributed application with Elastic Search. | 
 | [PostSharp.Samples.Logging.ElasticStack/ClientExample](Diagnostics/PostSharp.Samples.Logging.ElasticStack/ClientExample/)                 |  The server-side service demonstrating correlation of logs of a distributed application with Elastic Search.  | 
