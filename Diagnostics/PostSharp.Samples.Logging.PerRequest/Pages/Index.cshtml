@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    CommonCode.HelloWorld();
+}
+
+<div>
+    <h1 class="display-4">Welcome</h1>
+    <p>This sample app demonstrates the per-request configuration of logging verbosity with a file.</p>
+    <p>Here is the content of the file:</p>
+    <pre>@System.IO.File.ReadAllText("postsharp-logging.config")</pre>
+    <p>To see this at work, open side to side your web browser and the console that runs the application.</p>
+    <p>
+        Unless you have modified this file:
+    </p>
+    <ul>
+        <li>The home page (this one) will be logged one every 10th second. Try to F5 every second to see if it works.</li>
+        <li>The <a href="/Privacy">Privacy</a> page will always be logged.</li>
+    </ul>
+</div>

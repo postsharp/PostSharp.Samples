@@ -57,10 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.8.3-preview-4cc271</Version>
+      <Version>6.8.3-preview-4aa2a9</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.3-preview-4cc271</Version>
+      <Version>6.8.3-preview-4aa2a9</Version>
     </PackageReference>
     <PackageReference Include="ServiceStack.Common">
       <Version>5.8.0</Version>

@@ -61,13 +61,13 @@
       <Version>4.6.8</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
-      <Version>6.8.3-preview-4cc271</Version>
+      <Version>6.8.3-preview-4aa2a9</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.3-preview-4cc271</Version>
+      <Version>6.8.3-preview-4aa2a9</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics.NLog">
-      <Version>6.8.3-preview-4cc271</Version>
+      <Version>6.8.3-preview-4aa2a9</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
