@@ -11,7 +11,8 @@ using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Adapters.AspNetCore;
 using PostSharp.Patterns.Diagnostics.Backends.Console;
 
-[assembly:Log]
+[assembly: Log]
+
 namespace PostSharp.Samples.Logging.PerRequest
 {
   public class Program
@@ -21,7 +22,12 @@ namespace PostSharp.Samples.Logging.PerRequest
       
       AspNetCoreLogging.Initialize();
       LoggingServices.DefaultBackend = new ConsoleLoggingBackend();
-      LoggingServices.DefaultBackend.ConfigureFromXml(XDocument.Load("postsharp-logging.config"));
+
+      // This loads the configuration file from disk. 
+      // You can also store this file in a cloud storage service and use ConfigureFromXmlWithAutoReloadAsync
+      // to load it and have it automatically reload every minute or so, so you can dynamically
+      // change the verbosity.
+     LoggingServices.DefaultBackend.ConfigureFromXml(XDocument.Load("postsharp-logging.config"));
 
       CreateHostBuilder(args).Build().Run();
     }
