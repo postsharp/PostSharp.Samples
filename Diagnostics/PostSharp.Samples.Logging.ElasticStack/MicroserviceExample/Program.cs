@@ -9,6 +9,7 @@ using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System;
+using System.Reflection;
 
 [assembly: Log]
 
@@ -23,7 +24,7 @@ namespace MicroserviceExample
 
       // Configure Serilog to write to the console and to Elastic Search.
       using (var logger = new LoggerConfiguration()
-          .Enrich.WithProperty("Application", "Microservice")
+          .Enrich.WithProperty("Application", typeof(Program).Assembly.GetName().Name)
           .MinimumLevel.Debug()
           .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
           {
