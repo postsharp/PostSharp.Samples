@@ -110,13 +110,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.8.3-preview-4aa2a9</Version>
+      <Version>6.8.4-preview</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Threading">
-      <Version>6.8.3-preview-4aa2a9</Version>
+      <Version>6.8.4-preview</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Xaml">
-      <Version>6.8.3-preview-4aa2a9</Version>
+      <Version>6.8.4-preview</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

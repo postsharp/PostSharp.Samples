@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.8.3-preview-4aa2a9</Version>
+      <Version>6.8.4-preview</Version>
     </PackageReference>
     <PackageReference Include="System.Collections.Immutable">
       <Version>1.7.0</Version>
