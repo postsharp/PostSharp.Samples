@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Adapters.AspNetCore;
 using PostSharp.Patterns.Diagnostics.Backends.Serilog;
+using PostSharp.Patterns.Diagnostics.Correlation;
 using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
@@ -55,7 +56,9 @@ namespace MicroserviceExample
 
 
         // Instrument ASP.NET Core.
-        AspNetCoreLogging.Initialize();
+        AspNetCoreLogging.Initialize(
+          correlationProtocol: new LegacyHttpCorrelationProtocol()
+          );
 
 
         // Execute the web app.

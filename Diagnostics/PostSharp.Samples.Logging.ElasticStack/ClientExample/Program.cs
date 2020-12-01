@@ -1,6 +1,7 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Diagnostics.Adapters.HttpClient;
 using PostSharp.Patterns.Diagnostics.Backends.Serilog;
+using PostSharp.Patterns.Diagnostics.Correlation;
 using PostSharp.Patterns.Diagnostics.Custom;
 using PostSharp.Patterns.Diagnostics.RecordBuilders;
 using Serilog;
@@ -50,7 +51,9 @@ namespace ClientExample
         LoggingServices.DefaultBackend = backend;
 
         // Intercept outgoing HTTP requests and add logging to them.
-        HttpClientLogging.Initialize(uri => uri.Port != 9200);
+        HttpClientLogging.Initialize(
+          correlationProtocol: new LegacyHttpCorrelationProtocol(),
+          requestUriPredicate: uri => uri.Port != 9200);
 
 
         using (logSource.Debug.OpenActivity(Formatted("Running the client"),
