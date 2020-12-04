@@ -50,10 +50,20 @@ namespace ClientExample
         backend.Options.ContextIdGenerationStrategy = ContextIdGenerationStrategy.Hierarchical;
         LoggingServices.DefaultBackend = backend;
 
+        // Defines a filter that selects trusted requests for which the correlation protocol is enabled.
+        // Enabling HTTP Correlation Protocol for communication with untrusted devices is a security risk.
+        Predicate<CorrelationRequest> trustedRequests = request => request.RemoteHost == "localhost" ||
+                                                                   request.RemoteHost == "127.0.0.1" ||
+                                                                   request.RemoteHost == "::1";
+
+        // Determines which requests will be logged. We exclude requests to Logstash so that we are not logging
+        // the logging itself.
+        Predicate<Uri> loggedRequests = uri => uri.Port != 9200;
+
         // Intercept outgoing HTTP requests and add logging to them.
         HttpClientLogging.Initialize(
-          correlationProtocol: new LegacyHttpCorrelationProtocol(),
-          requestUriPredicate: uri => uri.Port != 9200);
+          correlationProtocol: new LegacyHttpCorrelationProtocol(trustedRequests),
+          loggedRequests);
 
 
         using (logSource.Debug.OpenActivity(Formatted("Running the client"),

@@ -1,5 +1,4 @@
-﻿using MicroserviceExample.Formatters;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using PostSharp.Patterns.Diagnostics;
@@ -50,15 +49,16 @@ namespace MicroserviceExample
         backend.Options.ContextIdGenerationStrategy = ContextIdGenerationStrategy.Hierarchical;
         LoggingServices.DefaultBackend = backend;
 
-        LoggingServices.Formatters.Register(typeof(ActionResult<>), typeof(ActionResultFormatter<>));
-        LoggingServices.Formatters.Register(new ActionResultFormatter());
-        LoggingServices.Formatters.Register(new ObjectResultFormatter());
 
+
+        // Defines a filter that selects trusted requests. 
+        // Enabling HTTP Correlation Protocol for communication with untrusted devices is a security risk.
+        Predicate<CorrelationRequest> trustedRequests = request => request.RemoteHost == "localhost" || 
+                                                                   request.RemoteHost == "127.0.0.1" ||
+                                                                   request.RemoteHost == "::1";
 
         // Instrument ASP.NET Core.
-        AspNetCoreLogging.Initialize(
-          correlationProtocol: new LegacyHttpCorrelationProtocol()
-          );
+        AspNetCoreLogging.Initialize( correlationProtocol: new LegacyHttpCorrelationProtocol(trustedRequests) );
 
 
         // Execute the web app.
