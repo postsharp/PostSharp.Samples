@@ -9,10 +9,10 @@
         <Version>3.0.3</Version>
       </PackageReference>
       <PackageReference Include="PostSharp.Patterns.Diagnostics">
-        <Version>6.8.5-rc-e82a62</Version>
+        <Version>6.8.5-rc</Version>
       </PackageReference>
       <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog">
-        <Version>6.8.5-rc-e82a62</Version>
+        <Version>6.8.5-rc</Version>
       </PackageReference>
       <PackageReference Include="Serilog.Sinks.ColoredConsole">
         <Version>3.0.1</Version>

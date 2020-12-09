@@ -5,9 +5,9 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.8.5-rc-e82a62" />
-		<PackageReference Include="PostSharp.Patterns.Diagnostics.AspNetCore" Version="6.8.5-rc-e82a62" />
-		<PackageReference Include="PostSharp.Patterns.Diagnostics.Configuration" Version="6.8.5-rc-e82a62" />
+		<PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.8.5-rc" />
+		<PackageReference Include="PostSharp.Patterns.Diagnostics.AspNetCore" Version="6.8.5-rc" />
+		<PackageReference Include="PostSharp.Patterns.Diagnostics.Configuration" Version="6.8.5-rc" />
 	</ItemGroup>
 
 </Project>
