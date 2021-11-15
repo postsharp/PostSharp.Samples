@@ -14,9 +14,9 @@
   <ItemGroup>
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.8.5-rc" />
-    <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.8.5-rc" />
-	<PackageReference Include="PostSharp.Patterns.Diagnostics.AspNetCore" Version="6.8.5-rc" />
+    <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.10.4-rc" />
+    <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.10.4-rc" />
+	<PackageReference Include="PostSharp.Patterns.Diagnostics.AspNetCore" Version="6.10.4-rc" />
     <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.1" />
   </ItemGroup>
   <ItemGroup>

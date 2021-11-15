@@ -61,13 +61,13 @@
       <Version>2.0.10</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics.Log4Net">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
