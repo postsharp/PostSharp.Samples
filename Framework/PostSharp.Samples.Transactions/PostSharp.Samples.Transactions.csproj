@@ -178,7 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
-      <Version>6.4.0</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
       <Version>6.10.4-rc</Version>

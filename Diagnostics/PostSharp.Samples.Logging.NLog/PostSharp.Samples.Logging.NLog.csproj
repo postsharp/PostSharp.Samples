@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NLog">
-      <Version>4.6.8</Version>
+      <Version>4.7.12</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
       <Version>6.10.4-rc</Version>

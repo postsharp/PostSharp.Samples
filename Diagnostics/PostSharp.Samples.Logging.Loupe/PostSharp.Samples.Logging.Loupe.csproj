@@ -58,10 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Gibraltar.Agent">
-      <Version>4.9.2</Version>
+      <Version>4.10.17</Version>
     </PackageReference>
     <PackageReference Include="Gibraltar.Loupe.Viewer">
-      <Version>4.8.33</Version>
+      <Version>4.10.17</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
       <Version>6.10.4-rc</Version>

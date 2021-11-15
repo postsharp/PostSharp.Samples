@@ -10,11 +10,11 @@
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>
     <PackageReference Include="PostSharp.Patterns.Diagnostics.HttpClient" Version="6.10.4-rc" />
-    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
     <PackageReference Include="PostSharp.Patterns.Diagnostics" Version="6.10.4-rc" />
     <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog" Version="6.10.4-rc" />
-    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.0.1" />
+    <PackageReference Include="Serilog.Sinks.ElasticSearch" Version="8.4.1" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <Import Project="..\..\..\PostSharp.Samples.targets" />
