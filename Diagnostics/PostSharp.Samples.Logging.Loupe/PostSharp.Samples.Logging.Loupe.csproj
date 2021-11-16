@@ -58,16 +58,16 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Gibraltar.Agent">
-      <Version>4.9.2</Version>
+      <Version>4.10.17</Version>
     </PackageReference>
     <PackageReference Include="Gibraltar.Loupe.Viewer">
-      <Version>4.8.33</Version>
+      <Version>4.10.17</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>

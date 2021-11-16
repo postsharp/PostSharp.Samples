@@ -66,31 +66,31 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Caching">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Caching.Redis">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="redis-64">
       <Version>3.0.503</Version>
     </PackageReference>
     <PackageReference Include="StackExchange.Redis">
-      <Version>2.0.601</Version>
+      <Version>2.2.88</Version>
     </PackageReference>
     <PackageReference Include="System.Buffers">
-      <Version>4.5.0</Version>
+      <Version>4.5.1</Version>
     </PackageReference>
     <PackageReference Include="System.Collections.Immutable">
-      <Version>1.7.0</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
-      <Version>4.7.0</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>

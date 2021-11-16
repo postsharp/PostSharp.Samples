@@ -61,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
     <PackageReference Include="System.Collections.Immutable">
-      <Version>1.7.0</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\..\PostSharp.Samples.targets" />

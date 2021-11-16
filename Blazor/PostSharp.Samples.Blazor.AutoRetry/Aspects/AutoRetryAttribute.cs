@@ -1,11 +1,8 @@
 ﻿using PostSharp.Aspects;
 using PostSharp.Extensibility;
 using PostSharp.Serialization;
-using System;
 using System.Data;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace PostSharp.Samples.AutoRetry.Aspects
 {
@@ -26,7 +23,7 @@ namespace PostSharp.Samples.AutoRetry.Aspects
       // Set the default values for properties.
       MaxRetries = 5;
       Delay = 3;
-      HandledExceptions = new[] { typeof(WebException), typeof(DataException) };
+      HandledExceptions = new[] { typeof(HttpRequestException), typeof(WebException), typeof(DataException) };
     }
 
     /// <summary>

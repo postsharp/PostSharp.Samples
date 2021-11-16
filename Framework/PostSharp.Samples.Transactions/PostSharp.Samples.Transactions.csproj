@@ -178,10 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
-      <Version>6.4.0</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="PostSharp">
-      <Version>6.8.5-rc</Version>
+      <Version>6.10.4-rc</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\..\PostSharp.Samples.targets" />
