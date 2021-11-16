@@ -7,7 +7,8 @@ namespace PostSharp.Samples.Blazor.AutoRetry.Services
   [AutoRetry]
   public class WeatherService
   {
-    private static int counter;
+    private int counter;
+
     private readonly HttpClient httpClient;
 
     public WeatherService(HttpClient httpClient)
