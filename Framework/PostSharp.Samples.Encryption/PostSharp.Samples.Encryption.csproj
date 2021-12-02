@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.10.4-rc</Version>
+      <Version>6.10.5</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\..\PostSharp.Samples.targets" />

@@ -53,13 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.10.4-rc</Version>
+      <Version>6.10.5</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>6.10.4-rc</Version>
+      <Version>6.10.5</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog">
-      <Version>6.10.4-rc</Version>
+      <Version>6.10.5</Version>
     </PackageReference>
     <PackageReference Include="Serilog">
       <Version>2.10.0</Version>
@@ -68,7 +68,7 @@
       <Version>3.0.1</Version>
     </PackageReference>
     <PackageReference Include="Serilog.Sinks.Console">
-      <Version>4.0.0</Version>
+      <Version>4.0.1</Version>
     </PackageReference>
     <PackageReference Include="Serilog.Sinks.File">
       <Version>5.0.0</Version>
