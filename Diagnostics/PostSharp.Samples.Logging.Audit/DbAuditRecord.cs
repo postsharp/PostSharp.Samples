@@ -12,10 +12,22 @@ namespace PostSharp.Samples.Logging.Audit
       this.Description = description;
     }
 
-    public BusinessObject BusinessObject { get; }
-    public string Method { get; }
-    public string User { get; }
-    public string Description { get; }
+    public BusinessObject BusinessObject
+    {
+      get;
+    }
+    public string Method
+    {
+      get;
+    }
+    public string User
+    {
+      get;
+    }
+    public string Description
+    {
+      get;
+    }
     public DateTimeOffset Time { get; } = DateTimeOffset.Now;
 
     public void AppendToDatabase()

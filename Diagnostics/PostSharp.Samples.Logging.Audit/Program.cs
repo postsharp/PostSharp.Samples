@@ -1,4 +1,7 @@
-﻿using System.Security.Principal;
+﻿using PostSharp.Patterns.Diagnostics;
+using PostSharp.Samples.Logging.Audit.Audit;
+using PostSharp.Samples.Logging.Audit.Audit.Backend;
+using System.Security.Principal;
 
 namespace PostSharp.Samples.Logging.Audit
 {
@@ -6,6 +9,9 @@ namespace PostSharp.Samples.Logging.Audit
   {
     private static void Main(string[] args)
     {
+      // Configure the audit backend.
+      LoggingServices.Roles["Audit"].Backend = new AuditBackend();
+
       // Configure the auditing services.
       AuditServices.RecordPublished += OnAuditRecordPublished;
 
