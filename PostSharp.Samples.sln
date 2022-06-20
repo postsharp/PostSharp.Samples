@@ -105,19 +105,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostSharp.Samples.Blazor.AutoRetry", "Blazor\PostSharp.Samples.Blazor.AutoRetry\PostSharp.Samples.Blazor.AutoRetry.csproj", "{227DCE65-1ED2-40B0-82C8-8F885BFE54EC}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{49e1beb2-613f-4326-a3aa-2984ab1a0931}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{637cb8f6-4f80-4d14-b1a6-2095a2a743c9}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{640c57c0-5220-416f-9152-3d5a98b0d71a}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{80d82101-021a-4611-8dac-5deaedc00d8f}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{8cc6b1da-28c5-4b03-b048-6e03c56b8bcc}*SharedItemsImports = 13
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{90a7f2ad-e82b-4285-9d3d-070e95d2f0ba}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{97830c73-1d7f-48a4-92f0-0beabc8216db}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{a640cf21-ce2f-4fde-bd6a-f148a421e0ff}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{cc3f424b-e1be-4555-a77e-52fa4b14bda0}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{cd5f3675-c0bc-4fe4-8fae-0cf0a66fd644}*SharedItemsImports = 4
-		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{fb71f9b1-4a53-4397-a26c-23294423da4d}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Development|Any CPU = Development|Any CPU
@@ -393,5 +380,18 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E95A232-DBEE-4E84-9574-757745FEE89B}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{49e1beb2-613f-4326-a3aa-2984ab1a0931}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{637cb8f6-4f80-4d14-b1a6-2095a2a743c9}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{640c57c0-5220-416f-9152-3d5a98b0d71a}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{80d82101-021a-4611-8dac-5deaedc00d8f}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{8cc6b1da-28c5-4b03-b048-6e03c56b8bcc}*SharedItemsImports = 13
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{90a7f2ad-e82b-4285-9d3d-070e95d2f0ba}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{97830c73-1d7f-48a4-92f0-0beabc8216db}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{a640cf21-ce2f-4fde-bd6a-f148a421e0ff}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{cc3f424b-e1be-4555-a77e-52fa4b14bda0}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{cd5f3675-c0bc-4fe4-8fae-0cf0a66fd644}*SharedItemsImports = 4
+		Diagnostics\PostSharp.Samples.Logging.BusinessLogic\PostSharp.Samples.Logging.BusinessLogic.projitems*{fb71f9b1-4a53-4397-a26c-23294423da4d}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

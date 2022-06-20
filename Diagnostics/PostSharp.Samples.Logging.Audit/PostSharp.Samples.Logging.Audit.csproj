@@ -44,10 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuditAttribute.cs" />
-    <Compile Include="AuditRecord.cs" />
-    <Compile Include="AuditRecordEventArgs.cs" />
-    <Compile Include="AuditServices.cs" />
+    <Compile Include="Audit\AuditAttribute.cs" />
+    <Compile Include="Audit\AuditRecord.cs" />
+    <Compile Include="Audit\AuditRecordEventArgs.cs" />
+    <Compile Include="Audit\AuditServices.cs" />
+    <Compile Include="Audit\Backend\AuditBackend.cs" />
+    <Compile Include="Audit\Backend\AuditBackendOptions.cs" />
+    <Compile Include="Audit\Backend\AuditRecordBuilder.cs" />
+    <Compile Include="Audit\Backend\AuditTypeSource.cs" />
     <Compile Include="DbAuditRecord.cs" />
     <Compile Include="BusinessObject.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +73,7 @@
       <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\..\PostSharp.Samples.targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

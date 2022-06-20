@@ -10,8 +10,3 @@ to this event and write all relevant pieces of information to the audit database
 the business object being accessed, the name of method being invoked, and a detailed description of the event similar to a logging log record.
 
 In this sample, the `DbAuditRecord` class simulates a database entity. In a real-world example, you would write the audit record into a database table.
-
-## Documentation 
-
- [Adding Audit to Your Solution](https://doc.postsharp.net/audit).
-

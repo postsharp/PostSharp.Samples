@@ -1,4 +1,6 @@
-﻿namespace PostSharp.Samples.Logging.Audit
+﻿using PostSharp.Samples.Logging.Audit.Audit;
+
+namespace PostSharp.Samples.Logging.Audit
 {
   public class PurchaseOrder : BusinessObject
   {
