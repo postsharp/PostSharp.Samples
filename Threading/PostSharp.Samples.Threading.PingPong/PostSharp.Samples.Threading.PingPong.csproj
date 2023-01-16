@@ -58,10 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>6.10.5</Version>
+      <Version>2023.0.3</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Threading">
-      <Version>6.10.5</Version>
+      <Version>2023.0.3</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
