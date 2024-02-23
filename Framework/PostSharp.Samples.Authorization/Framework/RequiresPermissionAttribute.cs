@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Serialization;
+using System;
 
 namespace PostSharp.Samples.Authorization.Framework
 {
@@ -9,11 +10,11 @@ namespace PostSharp.Samples.Authorization.Framework
   ///   <see cref="RequiresPermissionBaseAttribute" /> class,
   ///   which is limited to standard permissions or simple named permsissions.
   /// </summary>
-  [Serializable]
+  [PSerializable]
   public class RequiresPermissionAttribute : RequiresPermissionBaseAttribute
   {
-    private readonly string _defaultPermission;
-    private readonly string _writePermission;
+    private string _defaultPermission;
+    private string _writePermission;
 
     /// <summary>
     ///   Initializes a new <see cref="RequiresPermissionAttribute" /> with a single <see cref="StandardPermission" />. This

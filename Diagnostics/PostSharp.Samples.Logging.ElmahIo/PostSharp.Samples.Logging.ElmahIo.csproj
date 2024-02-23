@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
@@ -9,10 +9,10 @@
         <Version>4.0.10</Version>
       </PackageReference>
       <PackageReference Include="PostSharp.Patterns.Diagnostics">
-        <Version>2023.0.3</Version>
+        <Version>2024.0.5</Version>
       </PackageReference>
       <PackageReference Include="PostSharp.Patterns.Diagnostics.Serilog">
-        <Version>2023.0.3</Version>
+        <Version>2024.0.5</Version>
       </PackageReference>
       <PackageReference Include="Serilog.Sinks.ColoredConsole">
         <Version>3.0.1</Version>

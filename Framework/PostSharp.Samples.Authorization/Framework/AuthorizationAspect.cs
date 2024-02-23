@@ -1,4 +1,5 @@
 ﻿using PostSharp.Aspects;
+using PostSharp.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace PostSharp.Samples.Authorization.Framework
   /// <summary>
   ///   Base class for <see cref="MethodAuthorizationAspect" /> and <see cref="LocationAuthorizationAspect" />.
   /// </summary>
-  [Serializable]
+  [PSerializable]
   public abstract class AuthorizationAspect : IAspect
   {
     [ThreadStatic] private static bool evaluatingPermissions;
@@ -152,7 +153,7 @@ namespace PostSharp.Samples.Authorization.Framework
     }
 
 
-    [Serializable]
+    [PSerializable]
     private struct OperationPermission<T>
     {
       public OperationPermission(OperationSemantic semantic, int parameterIndex, T permission)
@@ -162,11 +163,11 @@ namespace PostSharp.Samples.Authorization.Framework
         ParameterIndex = parameterIndex;
       }
 
-      public OperationSemantic Semantic { get; }
+      public OperationSemantic Semantic { get; private set; }
 
-      public int ParameterIndex { get; }
+      public int ParameterIndex { get; private set; }
 
-      public T Permission { get; }
+      public T Permission { get; private set; }
     }
   }
 }
