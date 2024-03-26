@@ -57,10 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PostSharp">
-      <Version>2023.0.3</Version>
+      <Version>2024.0.5</Version>
     </PackageReference>
     <PackageReference Include="PostSharp.Patterns.Diagnostics">
-      <Version>2023.0.3</Version>
+      <Version>2024.0.5</Version>
     </PackageReference>
     <PackageReference Include="ServiceStack.Common">
       <Version>5.13.2</Version>

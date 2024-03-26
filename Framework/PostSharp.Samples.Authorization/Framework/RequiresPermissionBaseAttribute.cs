@@ -1,5 +1,6 @@
 ﻿using PostSharp.Aspects;
 using PostSharp.Extensibility;
+using PostSharp.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace PostSharp.Samples.Authorization.Framework
   ///   object.
   ///   It could be used to implementation for instance parametric permissions.
   /// </summary>
-  [Serializable]
+  [PSerializable]
   [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method | AttributeTargets.Parameter, AllowMultiple = true)]
   public abstract class RequiresPermissionBaseAttribute : Attribute, IPermissionFactory, IAspectProvider
   {

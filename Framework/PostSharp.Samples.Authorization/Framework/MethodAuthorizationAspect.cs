@@ -1,5 +1,6 @@
 ﻿using PostSharp.Aspects;
 using PostSharp.Aspects.Dependencies;
+using PostSharp.Serialization;
 using System;
 using System.Reflection;
 
@@ -12,7 +13,7 @@ namespace PostSharp.Samples.Authorization.Framework
   ///   Note that this aspect is not a custom attribute and cannot be applied directly to a field or a property. It is
   ///   indirectly created by the <see cref="RequiresPermissionAttribute" /> aspect.
   /// </remarks>
-  [Serializable]
+  [PSerializable]
   [AspectTypeDependency(AspectDependencyAction.Commute, typeof(MethodAuthorizationAspect))]
   public class MethodAuthorizationAspect : AuthorizationAspect, IOnMethodBoundaryAspect
   {
